@@ -9,15 +9,21 @@ public class Freeze : SkillBase
     {
         if (!ManaManager.instance.UseMana((int)skillCost))
         {
-            Debug.Log("Yetersiz mana, freeze atýlamadý.");
             return;
         }
 
-        Vector2 spawnPos = centerPoint != null ? centerPoint.position : Vector2.zero;
+        Vector2 spawnPos;
+
+        if (centerPoint != null)
+        {
+            spawnPos = centerPoint.position;
+        }
+        else
+        {
+            spawnPos = Vector2.zero;
+        }
 
         GameObject proj = Instantiate(freezeProjectilePrefab, spawnPos, Quaternion.identity);
         proj.GetComponent<FreezeProjectile>().Initialize(targetPosition, duration, freezeDuration);
-
-        Debug.Log("Freeze fýrlatýldý: " + targetPosition);
     }
 }

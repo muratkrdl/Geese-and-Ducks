@@ -23,7 +23,6 @@ public class ManaManager : MonoBehaviour
         {
             currentMana++;
             timer = 0f;
-            Debug.Log("Silgi Tozu eklendi. Toplam: " + currentMana);
         }
     }
     public bool UseMana(int amount)
@@ -31,12 +30,10 @@ public class ManaManager : MonoBehaviour
         if (currentMana >= amount)
         {
             currentMana -= amount;
-            Debug.Log("Silgi Tozu kullanýldý. Kalan: " + currentMana);
             return true;
         }
         else
         {
-            Debug.Log("Yetersiz Silgi Tozu!");
             return false;
         }
     }

@@ -8,7 +8,14 @@ public class SkillManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     public void SelectSkill(SkillBase skill)
     {

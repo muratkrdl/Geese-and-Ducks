@@ -9,7 +9,6 @@ public class Barricade : SkillBase
     {
         if (!ManaManager.instance.UseMana((int)skillCost))
         {
-            Debug.Log("Yetersiz mana, barikat kurulamadı.");
             return;
         }
 

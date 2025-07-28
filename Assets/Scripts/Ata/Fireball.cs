@@ -9,7 +9,6 @@ public class Fireball : SkillBase
     {
         if (!ManaManager.instance.UseMana((int)skillCost))
         {
-            Debug.Log("Yetersiz silgi tozu, fireball atılamadı.");
             return;
         }
 
@@ -23,9 +22,8 @@ public class Fireball : SkillBase
         {
             spawnPos = Vector2.zero;
         }
+
         GameObject go = Instantiate(fireballPrefab, spawnPos, Quaternion.identity);
         go.GetComponent<FireballProjectile>().Initialize(targetPosition, duration);
-
-        Debug.Log("Alev Topu Fırlatıldı: " + targetPosition);
     }
 }

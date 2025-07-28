@@ -8,8 +8,6 @@ public class FreezeArea : MonoBehaviour
     {
         freezeDuration = freezeTime;
 
-        Debug.Log("Freeze alaný oluþtu, düþmanlar " + freezeDuration + " saniye donacak (simülasyon)");
-
         Destroy(gameObject, areaDuration);
     }
 

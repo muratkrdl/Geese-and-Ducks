@@ -5,6 +5,7 @@ public class SkillManager : MonoBehaviour
     public static SkillManager instance;
 
     public SkillBase currentSkill;
+    public SkillButton lastClickedButton;
 
     private void Awake()
     {
@@ -17,10 +18,10 @@ public class SkillManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     public void SelectSkill(SkillBase skill)
     {
         currentSkill = skill;
-        Debug.Log(skill.skillName + " secildi.");
     }
 
     public void UseSelectedSkill(Vector2 pos)
@@ -28,7 +29,15 @@ public class SkillManager : MonoBehaviour
         if (currentSkill != null)
         {
             currentSkill.UseSkill(pos);
+
+            if (lastClickedButton != null)
+            {
+                SkillSlotManager.instance.ReplaceSkillSlot(lastClickedButton);
+                lastClickedButton = null; 
+            }
+
+            currentSkill = null;
+
         }
     }
 }
-

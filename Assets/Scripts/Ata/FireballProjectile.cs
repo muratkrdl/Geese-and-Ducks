@@ -3,15 +3,17 @@ using UnityEngine;
 public class FireballProjectile : MonoBehaviour
 {
     private Vector2 targetPos;
-    private float duration; 
+    private float duration;
+    private float damage;
 
-    public float speed = 10f; 
-    public GameObject fireAreaPrefab; 
+    public float speed = 10f;
+    public GameObject fireAreaPrefab;
 
-    public void Initialize(Vector2 target, float durationFromSkill)
+    public void Initialize(Vector2 target, float durationFromSkill, float dmg)
     {
         targetPos = target;
         duration = durationFromSkill;
+        damage = dmg; 
     }
 
     void Update()
@@ -27,7 +29,7 @@ public class FireballProjectile : MonoBehaviour
                 FireArea fireAreaScript = area.GetComponent<FireArea>();
                 if (fireAreaScript != null)
                 {
-                    fireAreaScript.Initialize(duration); 
+                    fireAreaScript.Initialize(duration, damage); 
                 }
             }
 

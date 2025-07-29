@@ -5,6 +5,10 @@ public class Fireball : SkillBase
     public GameObject fireballPrefab;
     public Transform centerPoint;
 
+    public float fireballDamage = 10f;
+
+
+
     public override void UseSkill(Vector2 targetPosition)
     {
         if (!ManaManager.instance.UseMana((int)skillCost))
@@ -24,6 +28,6 @@ public class Fireball : SkillBase
         }
 
         GameObject go = Instantiate(fireballPrefab, spawnPos, Quaternion.identity);
-        go.GetComponent<FireballProjectile>().Initialize(targetPosition, duration);
+        go.GetComponent<FireballProjectile>().Initialize(targetPosition, duration, fireballDamage);
     }
 }

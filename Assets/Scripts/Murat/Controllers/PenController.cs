@@ -48,10 +48,5 @@ namespace Murat.Controllers
             _goPos = goPos;
         }
 
-        public Vector3 GetGoPos()
-        {
-            return _goPos;
-        }
-        
     }
 }

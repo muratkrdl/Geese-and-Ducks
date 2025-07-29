@@ -1,8 +1,9 @@
 using System.Linq;
+using Murat.Managers;
 using Murat.Utilities;
 using UnityEngine;
 
-namespace Murat.Controllers
+namespace Murat.Controllers.Line
 {
     public class LinePhysicsController : MonoBehaviour
     {
@@ -29,7 +30,7 @@ namespace Murat.Controllers
                     .Select(p => p.Index)
                     .ToArray();
 
-                GetComponent<LineController>().StartReverse(closestIndexes[0], closestIndexes[1]);
+                GetComponent<LineManager>().StartReverse(closestIndexes[0], closestIndexes[1]);
             }
         }
     }

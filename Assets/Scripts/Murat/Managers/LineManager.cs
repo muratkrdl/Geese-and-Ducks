@@ -50,6 +50,8 @@ namespace Murat.Managers
 
         public void StartReverse(int a, int b)
         {
+            if (_movementController.IsReversing) return;
+            
             _gradientController.UpdateGradientAsync
             (
                 a, b,

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5486294511641512727}
   - component: {fileID: 2773960719927274202}
   - component: {fileID: 2196904127309503741}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -102,13 +102,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4e84160deabd34d8f28049bb0a3c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyConfig: {fileID: 11400000, guid: cb8d55f4bed198b4289a2714f731577d, type: 2}
+  health: 100
+  speed: 1
+  damage: 10
   attackDistance: 0.45
   damageableLayerMask:
     serializedVersion: 2
     m_Bits: 256
   enemyType: 0
-  Healthfiller: {fileID: 0}
+  baseSpeed: 1
+  manaReward: 1
   knockbackDistance: 1
   knockbackDuration: 0.1
 --- !u!61 &2773960719927274202

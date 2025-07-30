@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2447747650840440624}
   - component: {fileID: 5682716286923607150}
   - component: {fileID: 7908987252399983214}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RangedEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -101,13 +101,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9115a8a9b4ae2d4449c7b431c2780757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyConfig: {fileID: 11400000, guid: 8e253c9e07a0ba24bb8aa14bac8b0975, type: 2}
+  health: 100
+  speed: 1
+  damage: 10
   attackDistance: 2
   damageableLayerMask:
     serializedVersion: 2
     m_Bits: 256
   enemyType: 0
-  Healthfiller: {fileID: 0}
+  baseSpeed: 1
+  manaReward: 1
   projectilePrefab: {fileID: 7878657536466533775, guid: 624f1fe657255a8499c38dd896cde3c0, type: 3}
   shootCooldown: 2
 --- !u!61 &7908987252399983214

@@ -9,12 +9,11 @@ public class MeleeEnemy : EnemyBase
     protected override void Attack(IDamageable target, HeartOfLine heartOfLine) 
     {
         target.TakeDamage(damage);
-        if(heartOfLine != null )Destroy(gameObject);
         Vector2 directionToTarget = (target as MonoBehaviour).transform.position - transform.position;
         Vector2 knockbackDir = -directionToTarget.normalized;
 
         StartCoroutine(ApplyKnockback(knockbackDir));
-
+        if (heartOfLine != null) Destroy(gameObject);
         isAttacking = false;
     }
 

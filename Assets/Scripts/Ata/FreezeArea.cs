@@ -2,24 +2,23 @@ using UnityEngine;
 
 public class FreezeArea : MonoBehaviour
 {
-    private float freezeDuration;
+    private float slowDuration;
+    private float slowRate;
 
-    public void Initialize(float areaDuration, float freezeTime)
+    public void Initialize(float duration, float rate)
     {
-        freezeDuration = freezeTime;
+        slowDuration = duration;
+        slowRate = rate;
 
-        Destroy(gameObject, areaDuration);
+        Destroy(gameObject, slowDuration); 
     }
 
-
-  /*  
-     private void OnTriggerEnter2D(Collider2D collision)
-     {
-        if (collision.CompareTag("Enemy"))
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        EnemyBase enemy = other.GetComponent<EnemyBase>();
+        if (enemy != null)
         {
-            Debug.Log("Bir düþman alana girdi ve dondu (" + freezeDuration + " saniye)"); 
+            enemy.SlowDown(slowRate, slowDuration);
         }
-     } 
-  */
-
+    }
 }

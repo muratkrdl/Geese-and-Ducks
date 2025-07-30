@@ -108,7 +108,7 @@ MonoBehaviour:
   attackDistance: 0.5
   damageableLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   enemyType: 0
   knockbackDistance: 0.5
   knockbackDuration: 0.1

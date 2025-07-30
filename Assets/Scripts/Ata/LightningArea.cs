@@ -2,21 +2,39 @@ using UnityEngine;
 
 public class LightningArea : MonoBehaviour
 {
-    public float effectDuration = 0.5f;
+    private float duration;
+    private float damage;
+    private float radius;
 
-        void Start()
+    [SerializeField] private LayerMask enemyLayer; 
+
+    public void Initialize(float durationFromSkill, float damageFromSkill, float radiusFromSkill)
     {
-          Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.5f);
+        duration = durationFromSkill;
+        damage = damageFromSkill;
+        radius = radiusFromSkill;
 
-           foreach (Collider2D hit in hits)
-           {
-               if (hit.CompareTag("Enemy"))
-               {
-                   Debug.Log(" Yýldýrým düþmaný yok etti: " + hit.name);
-               }
-           }
+        DamageEnemiesInRadius();
+        Destroy(gameObject, duration);
+    }
 
-           Destroy(gameObject, effectDuration);
-       
+    private void DamageEnemiesInRadius()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius, enemyLayer);
+
+        foreach (Collider2D hit in hits)
+        {
+            EnemyBase enemy = hit.GetComponent<EnemyBase>();
+            if (enemy != null)
+            {
+                enemy.TakeDamageEnemy(damage);
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

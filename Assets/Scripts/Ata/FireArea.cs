@@ -3,27 +3,22 @@ using UnityEngine;
 public class FireArea : MonoBehaviour
 {
     private float duration;
-    private float damage;
+    private float totalDotDamage;
 
-    public void Initialize(float durationFromSkillBase, float dmg)
+    public void Initialize(float durationFromSkillBase, float dotDamage)
     {
         duration = durationFromSkillBase;
-        damage = dmg;
+        totalDotDamage = dotDamage;
 
         Destroy(gameObject, duration);
     }
 
- /*   private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        EnemyBase enemy = other.GetComponent<EnemyBase>();
+        if (enemy != null)
         {
-            Debug.Log("Ateþ alanýna düþman girdi: " + other.name);
-
-            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage);
-            }
+            enemy.TakeDamageOverTime(totalDotDamage, duration);
         }
-    }*/
+    }
 }

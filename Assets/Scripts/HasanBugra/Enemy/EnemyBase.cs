@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public enum EnemyType
 {
@@ -18,17 +19,27 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private LayerMask damageableLayerMask;
     [SerializeField] private EnemyType enemyType = EnemyType.Normal;
 
+    // Ekleyen: Ata
+    private bool isSlowed = false;
+    private bool isFrozen = false;
+    private Coroutine slowRoutine;
+    private Coroutine freezeRoutine;
+    [SerializeField] private float baseSpeed = 1f;
+
+
+
     protected Transform target;
     protected bool isAttacking = false;
 
     protected virtual void Start()
     {
+        speed = baseSpeed;
         target = FindAnyObjectByType<HeartOfLine>()?.transform;
     }
 
     protected virtual void Update()
     {
-        if (isAttacking || target == null) return;
+        if (isAttacking || isFrozen || target == null) return;
 
         Vector2 direction = (target.position - transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, attackDistance, damageableLayerMask);
@@ -46,6 +57,7 @@ public class EnemyBase : MonoBehaviour
 
         transform.Translate(direction * speed * Time.deltaTime);
     }
+
 
     protected virtual void Attack(IDamageable target)
     {
@@ -79,4 +91,77 @@ public class EnemyBase : MonoBehaviour
 
         Gizmos.DrawLine(start, end);
     }
+
+
+
+    public void TakeDamageOverTime(float totalDamage, float duration)
+    {
+        StartCoroutine(DamageOverTimeCoroutine(totalDamage, duration));
+    }
+
+    private System.Collections.IEnumerator DamageOverTimeCoroutine(float totalDamage, float duration)
+    {
+        float elapsed = 0f;
+        float tickInterval = 1f;   // her 1 saniyede bir hasar
+        int totalTicks = Mathf.FloorToInt(duration / tickInterval);
+        float damagePerTick = totalDamage / totalTicks;
+
+        while (elapsed < duration)
+        {
+            TakeDamageEnemy(damagePerTick);
+            yield return new WaitForSeconds(tickInterval);
+            elapsed += tickInterval;
+        }
+    }
+
+    public void SlowDown(float slowMultiplier, float slowDuration)
+    {
+        if (isSlowed)
+            return;
+
+        if (slowRoutine != null)
+            StopCoroutine(slowRoutine);
+
+        slowRoutine = StartCoroutine(SlowDownCoroutine(slowMultiplier, slowDuration));
+    }
+
+    private IEnumerator SlowDownCoroutine(float multiplier, float duration)
+    {
+        isSlowed = true;
+        speed = baseSpeed * multiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        speed = baseSpeed;
+        isSlowed = false;
+    }
+
+
+
+    public void Freeze(float freezeDuration)
+    {
+        if (isFrozen)
+            return;
+
+        if (freezeRoutine != null)
+            StopCoroutine(freezeRoutine);
+
+        freezeRoutine = StartCoroutine(FreezeCoroutine(freezeDuration));
+    }
+
+    private IEnumerator FreezeCoroutine(float duration)
+    {
+        isFrozen = true;
+        float originalSpeed = speed;
+        speed = 0f;
+
+        yield return new WaitForSeconds(duration);
+
+        speed = baseSpeed;
+        isFrozen = false;
+    }
+
+
+
+
 }

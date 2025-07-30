@@ -3,10 +3,11 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     private float projectileDamage;
+    private GameObject _parent;
     [SerializeField] public float lifetime = 3f;
     private void Start()
     {
-        Destroy(gameObject, lifetime); // süre dolunca yok et
+        Destroy(gameObject, lifetime); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,8 +16,15 @@ public class EnemyProjectile : MonoBehaviour
         if (damageable != null)
         {
             damageable.TakeDamage(projectileDamage);
+            HeartOfLine heartOfLine = collision.GetComponent<HeartOfLine>();
+            if (heartOfLine != null) Destroy(_parent);
             Destroy(gameObject);
         }
+    }
+
+    public void SetParent(GameObject parent)
+    {
+        _parent = parent;
     }
 
     public void SetDamage(float damage)

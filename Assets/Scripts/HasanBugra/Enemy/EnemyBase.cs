@@ -11,18 +11,22 @@ public enum EnemyType
 public class EnemyBase : MonoBehaviour
 {
     [Header("Enemy Settings")]
-    [SerializeField] private float health = 100f;
+    [SerializeField] private float maxHealth;
     [SerializeField] private float speed = 2f;
     [SerializeField] protected float damage = 10f;
     [SerializeField] private float attackDistance = 1f;
     [SerializeField] private LayerMask damageableLayerMask;
     [SerializeField] private EnemyType enemyType = EnemyType.Normal;
+    [SerializeField] private SpriteRenderer Healthfiller;
 
+    private HeartOfLine heartOfLine = null;
+    private float health;
     protected Transform target;
     protected bool isAttacking = false;
 
     protected virtual void Start()
     {
+        health = maxHealth;
         target = FindAnyObjectByType<HeartOfLine>()?.transform;
     }
 
@@ -32,14 +36,18 @@ public class EnemyBase : MonoBehaviour
 
         Vector2 direction = (target.position - transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, attackDistance, damageableLayerMask);
-
+        if(hit.collider != null)
+        {
+         heartOfLine = hit.collider.GetComponent<HeartOfLine>();
+        }
+    
         if (hit.collider != null && hit.collider.gameObject != gameObject)
         {
             IDamageable damageable = hit.collider.GetComponent<IDamageable>();
             if (damageable != null)
             {
                 isAttacking = true;
-                Attack(damageable);
+                Attack(damageable,heartOfLine);
                 return;
             }
         }
@@ -47,7 +55,7 @@ public class EnemyBase : MonoBehaviour
         transform.Translate(direction * speed * Time.deltaTime);
     }
 
-    protected virtual void Attack(IDamageable target)
+    protected virtual void Attack(IDamageable target ,HeartOfLine heartOfLine)
     {
         target.TakeDamage(damage);
         isAttacking = false;

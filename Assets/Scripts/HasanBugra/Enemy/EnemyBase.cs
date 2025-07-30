@@ -11,14 +11,15 @@ public enum EnemyType
 public class EnemyBase : MonoBehaviour
 {
     [Header("Enemy Settings")]
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float speed = 2f;
-    [SerializeField] protected float damage = 10f;
+    [SerializeField] private EnemyConfig enemyConfig;
     [SerializeField] private float attackDistance = 1f;
     [SerializeField] private LayerMask damageableLayerMask;
     [SerializeField] private EnemyType enemyType = EnemyType.Normal;
     [SerializeField] private SpriteRenderer Healthfiller;
 
+    //Enemy Proporties
+    private float speed = 2f;
+    protected float damage = 10f;
     private HeartOfLine heartOfLine = null;
     private float health;
     protected Transform target;
@@ -26,7 +27,9 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Start()
     {
-        health = maxHealth;
+        speed = enemyConfig.speed;
+        damage = enemyConfig.damage;
+        health = enemyConfig.maxHealth;
         target = FindAnyObjectByType<HeartOfLine>()?.transform;
     }
 

@@ -102,14 +102,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4e84160deabd34d8f28049bb0a3c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
-  speed: 1
-  damage: 1
+  enemyConfig: {fileID: 11400000, guid: cb8d55f4bed198b4289a2714f731577d, type: 2}
   attackDistance: 0.5
   damageableLayerMask:
     serializedVersion: 2
     m_Bits: 8
   enemyType: 0
+  Healthfiller: {fileID: 0}
   knockbackDistance: 0.5
   knockbackDuration: 0.1
 --- !u!61 &2773960719927274202

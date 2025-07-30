@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29e5cb08fe84b240aefa929bb43306f, type: 3}
-  m_Name: GameManager
+  m_Script: {fileID: 11500000, guid: 2849ab1cbff32394c97f916eb4850e04, type: 3}
+  m_Name: White-Eraser
   m_EditorClassIdentifier: 
-  currentLevelIndex: 0
-  levels: []
+  maxHealth: 2
+  speed: 0.5
+  damage: 1

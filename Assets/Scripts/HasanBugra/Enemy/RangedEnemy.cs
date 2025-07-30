@@ -7,7 +7,7 @@ public class RangedEnemy : EnemyBase
     public float shootCooldown = 2f;
     private float lastShootTime;
 
-    protected override void Attack(IDamageable target)
+    protected override void Attack(IDamageable target, HeartOfLine heartOfLine)
     {
         if (Time.time - lastShootTime >= shootCooldown)
         {
@@ -25,6 +25,7 @@ public class RangedEnemy : EnemyBase
         GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         EnemyProjectile enemyProjectile = proj.GetComponent<EnemyProjectile>();
         enemyProjectile.SetDamage(damage);
+        enemyProjectile.SetParent(gameObject);
         Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
         if (rb != null)
         {

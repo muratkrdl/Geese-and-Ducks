@@ -2,46 +2,110 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("SpawnSettings")]
-    [SerializeField] private GameObject[] enemyPrefabs;
+    [Header("Game Config")]
+    [SerializeField] private GameManagerSO gameManager;
+
+    [Header("Spawn Settings")]
     [SerializeField] private float spawnInterval = 2f;
-    [SerializeField] private float minSpawnDistance = 15f;
-    [SerializeField] private float maxSpawnDistance = 20f;
+
+    [Header("Screen Spawn Bounds")]
+    [SerializeField] private float screenBuffer = 2f; 
 
     private Transform heartOfLine;
+    private EnemySpawn[] enemySpawns;
 
     private void Start()
     {
-        heartOfLine = FindAnyObjectByType<HeartOfLine>().transform;
+        heartOfLine = FindAnyObjectByType<HeartOfLine>()?.transform;
+        enemySpawns = gameManager.CurrentLevel.enemySpawns;
+     
         InvokeRepeating(nameof(SpawnEnemy), 1f, spawnInterval);
     }
 
     void SpawnEnemy()
     {
-        Vector2 spawnPos = GetRandomSpawnPosition();
-        int index = Random.Range(0, enemyPrefabs.Length);
-        Instantiate(enemyPrefabs[index], spawnPos, Quaternion.identity);
+        GameObject selectedPrefab = GetRandomEnemyByChance();
+
+        Vector2 spawnPos = GetScreenEdgeSpawnPosition();
+        Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
     }
 
-    Vector2 GetRandomSpawnPosition()
+    GameObject GetRandomEnemyByChance()
     {
-        float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
-        Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        float totalChance = 0f;
 
-        float distance = Random.Range(minSpawnDistance, maxSpawnDistance);
+        foreach (var spawn in enemySpawns)
+        {
+            totalChance += spawn.spawnChance;
+        }
 
-        Vector2 spawnPos = (Vector2)heartOfLine.position + direction * distance;
-        return spawnPos;
+        float randomPoint = Random.Range(0f, totalChance);
+        float cumulative = 0f;
+
+        foreach (var spawn in enemySpawns)
+        {
+            cumulative += spawn.spawnChance;
+            if (randomPoint <= cumulative)
+            {
+                return spawn.enemyPrefab;
+            }
+        }
+
+        return null;
+    }
+
+    Vector2 GetScreenEdgeSpawnPosition()
+    {
+        Camera cam = Camera.main;
+        if (cam == null) return Vector2.zero;
+
+        Vector2 screenMin = cam.ViewportToWorldPoint(new Vector2(0, 0));
+        Vector2 screenMax = cam.ViewportToWorldPoint(new Vector2(1, 1));
+
+        float left = screenMin.x - screenBuffer;
+        float right = screenMax.x + screenBuffer;
+        float bottom = screenMin.y - screenBuffer;
+        float top = screenMax.y + screenBuffer;
+
+        int side = Random.Range(0, 4);
+        Vector2 pos = Vector2.zero;
+
+        switch (side)
+        {
+            case 0:
+                pos = new Vector2(Random.Range(left, right), top);
+                break;
+            case 1:
+                pos = new Vector2(Random.Range(left, right), bottom);
+                break;
+            case 2:
+                pos = new Vector2(left, Random.Range(bottom, top));
+                break;
+            case 3:
+                pos = new Vector2(right, Random.Range(bottom, top));
+                break;
+        }
+
+        return pos;
     }
 
     private void OnDrawGizmosSelected()
     {
-        Transform heart = FindAnyObjectByType<HeartOfLine>().transform;
-      
-        Gizmos.color = new Color(1f, 1f, 0f, 0.3f); // Sarý, saydam
-        Gizmos.DrawWireSphere(heart.position, minSpawnDistance);
+        Camera cam = Camera.main;
+        if (cam == null) return;
 
-        Gizmos.color = new Color(1f, 0f, 0f, 0.3f); // Kýrmýzý, saydam
-        Gizmos.DrawWireSphere(heart.position, maxSpawnDistance);
+        Vector2 screenMin = cam.ViewportToWorldPoint(new Vector2(0, 0));
+        Vector2 screenMax = cam.ViewportToWorldPoint(new Vector2(1, 1));
+
+        float left = screenMin.x - screenBuffer;
+        float right = screenMax.x + screenBuffer;
+        float bottom = screenMin.y - screenBuffer;
+        float top = screenMax.y + screenBuffer;
+
+        Gizmos.color = new Color(1f, 0f, 0f, 0.25f);
+        Gizmos.DrawLine(new Vector2(left, bottom), new Vector2(right, bottom));
+        Gizmos.DrawLine(new Vector2(left, top), new Vector2(right, top));
+        Gizmos.DrawLine(new Vector2(left, bottom), new Vector2(left, top));
+        Gizmos.DrawLine(new Vector2(right, bottom), new Vector2(right, top));
     }
 }

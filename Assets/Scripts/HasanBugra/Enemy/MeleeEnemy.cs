@@ -6,10 +6,10 @@ public class MeleeEnemy : EnemyBase
     public float knockbackDistance = 1f;
     public float knockbackDuration = 0.1f;
 
-    protected override void Attack(IDamageable target)
+    protected override void Attack(IDamageable target, HeartOfLine heartOfLine) 
     {
         target.TakeDamage(damage);
-
+        if(heartOfLine != null )Destroy(gameObject);
         Vector2 directionToTarget = (target as MonoBehaviour).transform.position - transform.position;
         Vector2 knockbackDir = -directionToTarget.normalized;
 

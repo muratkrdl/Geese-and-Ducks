@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ namespace Murat.Controllers.Line
             _defaultGradient = gradient;
         }
 
-        public async UniTaskVoid UpdateGradientAsync(int a, int b, System.Func<int> getCurrentLineIndex, System.Action<bool> setReversing)
+        public async UniTaskVoid UpdateGradientAsync(int a, int b, Func<int> getCurrentLineIndex, Action<bool> setReversing, Action onComplete)
         {
             setReversing(true);
             while (getCurrentLineIndex() != Mathf.Min(a,b))
@@ -28,7 +29,9 @@ namespace Murat.Controllers.Line
                 await UniTask.Yield();
             }
 
+            a = 999;
             _myLines.colorGradient = _defaultGradient;
+            onComplete?.Invoke();
             setReversing(false);
         }
 

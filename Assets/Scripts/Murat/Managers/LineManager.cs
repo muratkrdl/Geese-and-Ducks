@@ -20,6 +20,8 @@ namespace Murat.Managers
         private LineGradientController _gradientController;
         private LineColliderUpdater _colliderUpdater;
 
+        private int _oldReverseA = 999;
+
         private void Awake()
         {
             _movementController = gameObject.AddComponent<LineMovementController>();
@@ -41,22 +43,23 @@ namespace Murat.Managers
         {
             _movementController.MoveLastLine();
             _colliderUpdater.UpdateCollider();
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                _movementController.SetReversing(!_movementController.IsReversing);
-            }
         }
 
         public void StartReverse(int a, int b)
         {
-            if (_movementController.IsReversing) return;
+            int realA = Mathf.Min(a, b);
+            int realB = Mathf.Max(a, b);
+            if (realA <= _oldReverseA)
+                _oldReverseA = realA;
+            else
+                return;
             
             _gradientController.UpdateGradientAsync
             (
-                a, b,
+                realA, realB,
                 () => _movementController.CurrentLineIndex,
-                _movementController.SetReversing
+                _movementController.SetReversing,
+                () => _oldReverseA = 999
             ).Forget();
         }
     }

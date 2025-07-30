@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class RangedEnemy : EnemyBase
 {
@@ -7,7 +6,7 @@ public class RangedEnemy : EnemyBase
     public float shootCooldown = 2f;
     private float lastShootTime;
 
-   /* protected override void Attack(IDamageable target, HeartOfLine heartOfLine)
+    protected override void Attack(IDamageable target, HeartOfLine heartOfLine)
     {
         if (Time.time - lastShootTime >= shootCooldown)
         {
@@ -16,7 +15,7 @@ public class RangedEnemy : EnemyBase
         }
 
         isAttacking = false;
-    }*/
+    }
 
     void Shoot()
     {

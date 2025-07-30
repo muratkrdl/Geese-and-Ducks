@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public enum EnemyType
 {
@@ -12,12 +12,11 @@ public enum EnemyType
 public class EnemyBase : MonoBehaviour
 {
     [Header("Enemy Settings")]
-    [SerializeField] private float health = 100f;
-    [SerializeField] private float speed = 2f;
-    [SerializeField] protected float damage = 10f;
+    [SerializeField] private EnemyConfig enemyConfig;
     [SerializeField] private float attackDistance = 1f;
     [SerializeField] private LayerMask damageableLayerMask;
     [SerializeField] private EnemyType enemyType = EnemyType.Normal;
+    [SerializeField] private SpriteRenderer Healthfiller;
 
     // Ekleyen: Ata
     private bool isSlowed = false;
@@ -27,37 +26,49 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private float baseSpeed = 1f;
     [SerializeField] private int manaReward = 1;
 
+    //Enemy Proporties
+    private float speed = 2f;
+    protected float damage = 10f;
 
-
+    private HeartOfLine heartOfLine = null;
+    private float health;
     protected Transform target;
     protected bool isAttacking = false;
 
     protected virtual void Start()
     {
-        speed = baseSpeed;
+        speed = enemyConfig.speed;
+        damage = enemyConfig.damage;
+        health = enemyConfig.maxHealth;
         target = FindAnyObjectByType<HeartOfLine>()?.transform;
     }
+
     protected virtual void Update()
     {
-        if (isAttacking || isFrozen || target == null) return;
+        if (isAttacking || target == null) return;
 
         Vector2 direction = (target.position - transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, attackDistance, damageableLayerMask);
-
+        if(hit.collider != null)
+        {
+            heartOfLine = hit.collider.GetComponent<HeartOfLine>();
+        }
+    
         if (hit.collider != null && hit.collider.gameObject != gameObject)
         {
             IDamageable damageable = hit.collider.GetComponent<IDamageable>();
             if (damageable != null)
             {
                 isAttacking = true;
-                Attack(damageable);
+                Attack(damageable,heartOfLine);
                 return;
             }
         }
 
         transform.Translate(direction * speed * Time.deltaTime);
     }
-    protected virtual void Attack(IDamageable target)
+
+    protected virtual void Attack(IDamageable target ,HeartOfLine heartOfLine)
     {
         target.TakeDamage(damage);
         isAttacking = false;
@@ -68,7 +79,6 @@ public class EnemyBase : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
-            ManaManager.instance.AddMana(manaReward);
             Destroy(gameObject);
         }
     }
@@ -90,12 +100,12 @@ public class EnemyBase : MonoBehaviour
 
         Gizmos.DrawLine(start, end);
     }
-
+    
     public void TakeDamageOverTime(float totalDamage, float duration)
     {
         StartCoroutine(DamageOverTimeCoroutine(totalDamage, duration));
     }
-    private System.Collections.IEnumerator DamageOverTimeCoroutine(float totalDamage, float duration)
+    private IEnumerator DamageOverTimeCoroutine(float totalDamage, float duration)
     {
         float elapsed = 0f;
         float tickInterval = 1f;   // her 1 saniyede bir hasar
@@ -151,5 +161,5 @@ public class EnemyBase : MonoBehaviour
         speed = baseSpeed;
         isFrozen = false;
     }
-
+    
 }

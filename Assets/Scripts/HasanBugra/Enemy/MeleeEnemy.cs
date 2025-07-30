@@ -6,7 +6,7 @@ public class MeleeEnemy : EnemyBase
     public float knockbackDistance = 1f;
     public float knockbackDuration = 0.1f;
 
-  /*  protected override void Attack(IDamageable target, HeartOfLine heartOfLine) 
+    protected override void Attack(IDamageable target, HeartOfLine heartOfLine) 
     {
         target.TakeDamage(damage);
         Vector2 directionToTarget = (target as MonoBehaviour).transform.position - transform.position;
@@ -15,7 +15,7 @@ public class MeleeEnemy : EnemyBase
         StartCoroutine(ApplyKnockback(knockbackDir));
         if (heartOfLine != null) Destroy(gameObject);
         isAttacking = false;
-    }*/
+    }
 
     private IEnumerator ApplyKnockback(Vector2 direction)
     {

@@ -2,26 +2,23 @@ using UnityEngine;
 
 public class FireArea : MonoBehaviour
 {
-    [SerializeField] float duration;
-    [SerializeField] float damage;
+    private float duration;
+    private float totalDotDamage;
 
-    public void Initialize(float durationFromSkillBase, float dmg)
+    public void Initialize(float durationFromSkillBase, float dotDamage)
     {
         duration = durationFromSkillBase;
-        damage = dmg;
+        totalDotDamage = dotDamage;
 
         Destroy(gameObject, duration);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        EnemyBase enemy = other.GetComponent<EnemyBase>();
+        if (enemy != null)
         {
-            if (other.TryGetComponent<EnemyBase>(out var enemy))
-            {
-                enemy.TakeDamageEnemy(damage);
-            }
+            enemy.TakeDamageOverTime(totalDotDamage, duration);
         }
     }
-
 }

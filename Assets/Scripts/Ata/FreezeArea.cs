@@ -2,27 +2,23 @@ using UnityEngine;
 
 public class FreezeArea : MonoBehaviour
 {
-    [SerializeField] float freezeDuration;
-    [SerializeField] float freezeAmount;
-    [SerializeField] float freezeDamage;
+    private float slowDuration;
+    private float slowRate;
 
-    public void Initialize(float areaDuration, float freezeTime)
+    public void Initialize(float duration, float rate)
     {
-        freezeDuration = freezeTime;
+        slowDuration = duration;
+        slowRate = rate;
 
-        Destroy(gameObject, areaDuration);
+        Destroy(gameObject, slowDuration);
     }
 
-     private void OnTriggerEnter2D(Collider2D other)
-     {
-        if (other.CompareTag("Enemy"))
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        EnemyBase enemy = other.GetComponent<EnemyBase>();
+        if (enemy != null)
         {
-            if (other.TryGetComponent<EnemyBase>(out var enemy))
-            {
-                enemy.FreezeEnemy(freezeDuration, freezeAmount);
-                enemy.TakeDamageEnemy(freezeDamage);
-            }
+            enemy.SlowDown(slowRate, slowDuration);
         }
-     } 
-
+    }
 }

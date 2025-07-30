@@ -8,12 +8,16 @@ public class FreezeProjectile : MonoBehaviour
 
     private float areaDuration;
     private float freezeTime;
+    private float freezeDamage;
+    private float slowRate;
 
-    public void Initialize(Vector2 target, float d, float freezeDur)
+    public void Initialize(Vector2 target, float areaDur, float freezeDur, float damage, float slow)
     {
         targetPos = target;
-        areaDuration = d;
+        areaDuration = areaDur;
         freezeTime = freezeDur;
+        freezeDamage = damage;
+        slowRate = slow;
     }
 
     void Update()
@@ -22,17 +26,33 @@ public class FreezeProjectile : MonoBehaviour
 
         if (Vector2.Distance(transform.position, targetPos) < 0.1f)
         {
-            if (freezeAreaPrefab != null)
-            {
-                GameObject area = Instantiate(freezeAreaPrefab, targetPos, Quaternion.identity);
-                FreezeArea script = area.GetComponent<FreezeArea>();
-                if (script != null)
-                {
-                    script.Initialize(areaDuration, freezeTime);
-                }
-            }
-
+            SpawnFreezeArea();
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        EnemyBase enemy = other.GetComponent<EnemyBase>();
+        if (enemy != null)
+        {
+            enemy.TakeDamageEnemy(freezeDamage);
+            enemy.Freeze(freezeTime);
+            SpawnFreezeArea();
+            Destroy(gameObject);
+        }
+    }
+
+    private void SpawnFreezeArea()
+    {
+        if (freezeAreaPrefab != null)
+        {
+            GameObject area = Instantiate(freezeAreaPrefab, transform.position, Quaternion.identity);
+            FreezeArea script = area.GetComponent<FreezeArea>();
+            if (script != null)
+            {
+                script.Initialize(areaDuration, slowRate);
+            }
         }
     }
 }

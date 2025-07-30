@@ -7,7 +7,7 @@ public class ManaManager : MonoBehaviour
     public int currentMana = 0;
     public int maxMana = 10;
 
-    public float secForMana = 3f; 
+    public float secForMana = 3f;
     private float timer = 0f;
 
     void Awake()
@@ -37,4 +37,9 @@ public class ManaManager : MonoBehaviour
             return false;
         }
     }
+    public void AddMana(int amount)
+    {
+        currentMana = Mathf.Min(currentMana + amount, maxMana);
+    }
+
 }

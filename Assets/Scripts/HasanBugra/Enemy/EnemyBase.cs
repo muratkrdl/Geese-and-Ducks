@@ -17,9 +17,11 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private EnemyType enemyType = EnemyType.Normal;
     [SerializeField] private SpriteRenderer Healthfiller;
 
+
     //Enemy Proporties
     private float speed = 2f;
     protected float damage = 10f;
+
     private HeartOfLine heartOfLine = null;
     private float health;
     protected Transform target;

@@ -103,12 +103,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyConfig: {fileID: 11400000, guid: cb8d55f4bed198b4289a2714f731577d, type: 2}
+
   attackDistance: 0.5
   damageableLayerMask:
     serializedVersion: 2
     m_Bits: 8
   enemyType: 0
+
   Healthfiller: {fileID: 0}
+
   knockbackDistance: 0.5
   knockbackDuration: 0.1
 --- !u!61 &2773960719927274202

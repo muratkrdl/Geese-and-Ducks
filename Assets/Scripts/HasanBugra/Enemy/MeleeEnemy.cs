@@ -9,7 +9,6 @@ public class MeleeEnemy : EnemyBase
     protected override void Attack(IDamageable target, HeartOfLine heartOfLine) 
     {
         target.TakeDamage(damage);
-
         Vector2 directionToTarget = (target as MonoBehaviour).transform.position - transform.position;
         Vector2 knockbackDir = -directionToTarget.normalized;
 

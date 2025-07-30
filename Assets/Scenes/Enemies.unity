@@ -392,6 +392,7 @@ MonoBehaviour:
   gameManager: {fileID: 11400000, guid: 04ea2442815685e43b2b5face2f4b0cc, type: 2}
   spawnInterval: 2
   screenBuffer: 2
+
 --- !u!4 &2053597759
 Transform:
   m_ObjectHideFlags: 0
@@ -601,6 +602,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c4e56d8e8fa9e498173ad22aa4ba6d, type: 3}
+
 --- !u!1001 &4427481833515230751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -658,12 +660,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
+
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2139792561}
+
   - {fileID: 4427481833515230751}
+
   - {fileID: 2053597759}
   - {fileID: 3253999219090331646}
   - {fileID: 1543637879}

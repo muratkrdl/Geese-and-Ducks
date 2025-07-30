@@ -37,4 +37,9 @@ public class ManaManager : MonoBehaviour
             return false;
         }
     }
+    public void AddMana(int amount)
+    {
+        currentMana = Mathf.Min(currentMana + amount, maxMana);
+    }
+
 }

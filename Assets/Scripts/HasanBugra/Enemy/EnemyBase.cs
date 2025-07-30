@@ -25,6 +25,7 @@ public class EnemyBase : MonoBehaviour
     private Coroutine slowRoutine;
     private Coroutine freezeRoutine;
     [SerializeField] private float baseSpeed = 1f;
+    [SerializeField] private int manaReward = 1;
 
 
 
@@ -70,6 +71,7 @@ public class EnemyBase : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
+            ManaManager.instance.AddMana(manaReward);
             Destroy(gameObject);
         }
     }

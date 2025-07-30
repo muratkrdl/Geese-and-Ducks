@@ -1241,8 +1241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184fa527ed461264aa69359cbb0d8123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animDuration: 1
-  animEase: 19
+  animDuration: 0.65
+  animEase: 15
   descriptionPanel: {fileID: 3689358988282409264}
   playerPrefCode: 
   code: 0

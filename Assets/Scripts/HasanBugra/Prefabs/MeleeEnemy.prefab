@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2196904127309503741}
   m_Layer: 0
   m_Name: MeleeEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,16 +103,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyConfig: {fileID: 11400000, guid: cb8d55f4bed198b4289a2714f731577d, type: 2}
-
-  attackDistance: 0.5
+  attackDistance: 0.45
   damageableLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 256
   enemyType: 0
-
   Healthfiller: {fileID: 0}
-
-  knockbackDistance: 0.5
+  knockbackDistance: 1
   knockbackDuration: 0.1
 --- !u!61 &2773960719927274202
 BoxCollider2D:

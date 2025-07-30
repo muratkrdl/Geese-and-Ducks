@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class FreezeArea : MonoBehaviour
 {
-    private float freezeDuration;
+    [SerializeField] float freezeDuration;
+    [SerializeField] float freezeAmount;
+    [SerializeField] float freezeDamage;
 
     public void Initialize(float areaDuration, float freezeTime)
     {
@@ -11,15 +13,16 @@ public class FreezeArea : MonoBehaviour
         Destroy(gameObject, areaDuration);
     }
 
-
-  /*  
-     private void OnTriggerEnter2D(Collider2D collision)
+     private void OnTriggerEnter2D(Collider2D other)
      {
-        if (collision.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Bir düþman alana girdi ve dondu (" + freezeDuration + " saniye)"); 
+            if (other.TryGetComponent<EnemyBase>(out var enemy))
+            {
+                enemy.FreezeEnemy(freezeDuration, freezeAmount);
+                enemy.TakeDamageEnemy(freezeDamage);
+            }
         }
      } 
-  */
 
 }

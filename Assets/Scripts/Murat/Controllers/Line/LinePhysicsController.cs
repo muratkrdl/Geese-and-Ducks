@@ -31,6 +31,12 @@ namespace Murat.Controllers.Line
                     .ToArray();
 
                 GetComponent<LineManager>().StartReverse(closestIndexes[0], closestIndexes[1]);
+
+                if (other.TryGetComponent<EnemyBase>(out var enemy))
+                {
+                    enemy.TakeDamageEnemy(999);
+                }
+                
             }
         }
     }

@@ -1,3 +1,5 @@
+using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public enum EnemyType
@@ -27,9 +29,12 @@ public class EnemyBase : MonoBehaviour
     protected Transform target;
     protected bool isAttacking = false;
 
+    private float initialSpeed;
+
     protected virtual void Start()
     {
         speed = enemyConfig.speed;
+        initialSpeed = speed;
         damage = enemyConfig.damage;
         health = enemyConfig.maxHealth;
         target = FindAnyObjectByType<HeartOfLine>()?.transform;
@@ -92,4 +97,17 @@ public class EnemyBase : MonoBehaviour
 
         Gizmos.DrawLine(start, end);
     }
+
+    public void FreezeEnemy(float duration, float freezeAmount)
+    {
+        FreezeEnemyAsync(duration, freezeAmount).Forget();
+    }
+
+    private async UniTaskVoid FreezeEnemyAsync(float duration, float freezeAmount)
+    {
+        speed *= freezeAmount;
+        await UniTask.Delay(TimeSpan.FromSeconds(duration));
+        speed = initialSpeed;
+    }
+    
 }

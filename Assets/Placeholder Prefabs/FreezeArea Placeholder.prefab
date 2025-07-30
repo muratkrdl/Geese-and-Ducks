@@ -100,3 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a6ec963ba373d459c770eda855900e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeDuration: 2
+  freezeAmount: 0.6
+  freezeDamage: 0.3

@@ -161,5 +161,6 @@ public class EnemyBase : MonoBehaviour
         speed = baseSpeed;
         isFrozen = false;
     }
-    
+
+
 }

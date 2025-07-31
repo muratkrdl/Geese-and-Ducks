@@ -12,7 +12,10 @@ public abstract class SkillBase : MonoBehaviour
     public float freezeDamage;
     public float lightningDamage;
     public float lightningRadius;
-   // public float barricadeHp;
+    public Sprite skillIcon;
+    public float windForce;
+    public float windRadius;
+
 
 
 

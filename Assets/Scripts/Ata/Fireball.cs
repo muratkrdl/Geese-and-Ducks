@@ -3,6 +3,7 @@
 public class Fireball : SkillBase
 {
     public GameObject fireballPrefab;
+    public GameObject fireTargetMarkerPrefab;
     public Transform centerPoint;
 
     public override void UseSkill(Vector2 targetPosition)
@@ -12,7 +13,15 @@ public class Fireball : SkillBase
 
         Vector2 spawnPos = centerPoint != null ? centerPoint.position : Vector2.zero;
 
-        GameObject go = Instantiate(fireballPrefab, spawnPos, Quaternion.identity);
-        go.GetComponent<FireballProjectile>().Initialize(targetPosition, duration, fireballDamage, fireAreaDamage);
+        GameObject marker = Instantiate(fireTargetMarkerPrefab, targetPosition, Quaternion.identity);
+        GameObject fireball = Instantiate(fireballPrefab, spawnPos, Quaternion.identity);
+
+        fireball.GetComponent<FireballProjectile>().Initialize(
+            targetPosition,
+            duration,
+            fireballDamage,
+            fireAreaDamage,
+            marker
+        );
     }
 }

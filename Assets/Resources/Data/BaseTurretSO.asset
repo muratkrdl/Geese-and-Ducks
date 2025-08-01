@@ -16,4 +16,4 @@ MonoBehaviour:
   AttackSpeed: 0.75
   ProjectileSpeed: 10
   ProjectileDamage: 0
-  MaxHP: 9
+  MaxHP: 1

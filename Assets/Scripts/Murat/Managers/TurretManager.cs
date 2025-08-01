@@ -43,11 +43,7 @@ namespace Murat.Managers
             if (!activeTurrets.Contains(turret)) return;
             
             activeTurrets.Remove(turret);
-            if (turret is BasicTurret basicTurret)
-            {
-                basicTurret.ReleasePool();
-            }
-            else
+            if (turret is not BasicTurret)
             {
                 Destroy(turret.gameObject);
             }

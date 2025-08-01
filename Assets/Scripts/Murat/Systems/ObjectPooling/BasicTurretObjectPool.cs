@@ -14,6 +14,12 @@ namespace Murat.Systems.ObjectPooling
             Instance = this;
         }
 
+        protected override void OnGet(BasicTurret obj)
+        {
+            base.OnGet(obj);
+            obj.Initialize();
+        }
+
         protected override void OnRelease(BasicTurret obj)
         {
             base.OnRelease(obj);

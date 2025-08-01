@@ -24,14 +24,13 @@ namespace Murat.Abstracts
             _pool.Release(this);
         }
         
-        public void Start()
-        {
-            Destroy(gameObject, ConstUtilities.TurretProjectileLifeTime);
-        }
-        
         private void Update()
         {
-            if (!_target) return;
+            if (!_target)
+            {
+                ReleasePool();
+                return;
+            }
             
             Vector2 direction = (_target.position - transform.position).normalized;
             transform.position += (Vector3)(direction * (_speed * Time.deltaTime));

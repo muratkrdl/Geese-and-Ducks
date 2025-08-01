@@ -18,7 +18,7 @@ namespace Murat.Abstracts
         private Transform _turretHead;
         private bool CanAttack => Time.time - LastAttackTime >= 1f / Data.AttackSpeed;
         
-        protected virtual void Awake()
+        public virtual void Initialize()
         {
             SetData();
             _turretHead = transform.GetChild(0);

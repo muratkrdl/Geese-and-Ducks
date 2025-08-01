@@ -1,12 +1,20 @@
+using Murat.Data.UnityObject;
+using Murat.Data.UnityObject.CDS;
 using UnityEngine;
+using PenData = Murat.Data.ValueObject.PenData;
 
 namespace Murat.Controllers
 {
     public class PenController : MonoBehaviour
     {
-        [SerializeField] private float rotationSpeed;
+        private PenData _data;
 
         private Vector3 _goPos;
+
+        private void Awake()
+        {
+            _data = Resources.Load<CD_PEN>("Data/CDS/CD_PEN").PenData;
+        }
 
         private void Update()
         {
@@ -24,7 +32,7 @@ namespace Murat.Controllers
             float finalAngle = GetAdjustedAngle(targetAngle);
 
             Quaternion targetRotation = Quaternion.Euler(0f, 0f, finalAngle);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _data.RotationSpeed * Time.deltaTime);
         }
 
         private float GetAdjustedAngle(float angle)

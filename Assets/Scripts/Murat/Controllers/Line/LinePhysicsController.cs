@@ -30,7 +30,6 @@ namespace Murat.Controllers.Line
                     .Select(p => p.Index)
                     .ToArray();
 
-                Debug.Log(closestIndexes[0]);
                 GetComponent<LineManager>().StartReverse(closestIndexes[0], closestIndexes[1]);
 
                 if (other.TryGetComponent<EnemyBase>(out var enemy))

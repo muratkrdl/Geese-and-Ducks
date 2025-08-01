@@ -9,9 +9,6 @@ namespace Murat.Managers
         [SerializeField] private PenController pen;
         [SerializeField] private Gradient defaultGradient;
         
-        [SerializeField] private float moveSpeed = .5f;
-        [SerializeField] private float reverseMoveSpeed = 1.5f;
-        
         [SerializeField] private Vector2[] coordinates;
         [SerializeField] private LineRenderer myLines;
         [SerializeField] private EdgeCollider2D myCollider;

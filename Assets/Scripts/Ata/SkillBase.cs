@@ -2,17 +2,26 @@ using UnityEngine;
 
 public abstract class SkillBase : MonoBehaviour
 {
+    [Header("General Info")]
     public float skillCost;
     public string skillName;
     public float duration;
-    public float freezeDuration;
+    public Sprite skillIcon;
+
+    [Header("Fireball")]
     public float fireballDamage;
     public float fireAreaDamage;
+
+    [Header("Freeze")]
+    public float freezeDuration;
     public float slowRate;
     public float freezeDamage;
+
+    [Header("Lightning")]
     public float lightningDamage;
     public float lightningRadius;
-    public Sprite skillIcon;
+
+    [Header("Wind")]
     public float windForce;
     public float windRadius;
 

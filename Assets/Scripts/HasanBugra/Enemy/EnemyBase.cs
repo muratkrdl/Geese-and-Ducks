@@ -26,6 +26,9 @@ public class EnemyBase : MonoBehaviour
     private Coroutine freezeRoutine;
     [SerializeField] private float baseSpeed = 1f;
     [SerializeField] private int manaReward = 1;
+    protected Animator animator;
+    protected SpriteRenderer spriteRenderer;
+
 
     //Enemy Proporties
     private float speed = 2f;
@@ -44,48 +47,51 @@ public class EnemyBase : MonoBehaviour
         EnemyType[] types = (EnemyType[])Enum.GetValues(typeof(EnemyType));
         _enemyType = types[UnityEngine.Random.Range(0, types.Length)];
         target = FindAnyObjectByType<HeartOfLine>()?.transform;
+
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     protected virtual void Update()
     {
+        UpdateRunDirection();
+
         if (isAttacking || target == null) return;
 
-        Vector2 direction = (target.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, attackDistance, damageableLayerMask);
-        if(hit.collider != null)
+        float distanceToTarget = Vector2.Distance(transform.position, target.position);
+
+        if (distanceToTarget <= attackDistance)
         {
-            heartOfLine = hit.collider.GetComponent<HeartOfLine>();
-        }
-    
-        if (hit.collider != null && hit.collider.gameObject != gameObject)
-        {
-            IDamageable damageable = hit.collider.GetComponent<IDamageable>();
+            IDamageable damageable = target.GetComponent<IDamageable>();
             if (damageable != null)
             {
                 isAttacking = true;
-                Attack(damageable,heartOfLine);
+                Attack(damageable, target.GetComponent<HeartOfLine>());
                 return;
             }
         }
 
+        Vector2 direction = (target.position - transform.position).normalized;
         transform.Translate(direction * speed * Time.deltaTime);
     }
 
-    protected virtual void Attack(IDamageable target ,HeartOfLine heartOfLine)
+
+    protected virtual void Attack(IDamageable target, HeartOfLine heartOfLine)
     {
         target.TakeDamage(damage);
         isAttacking = false;
     }
 
-    public virtual void TakeDamageEnemy(float amount,EnemyType enemyType)
+    public virtual void TakeDamageEnemy(float amount, EnemyType enemyType)
     {
-        if(_enemyType == enemyType)
+        if (_enemyType == enemyType)
         {
             amount *= 2;
         }
-        else if(enemyType != EnemyType.Normal)
+        else if (enemyType != EnemyType.Normal)
         {
-            amount /= 2 ;
+            amount /= 2;
         }
 
 
@@ -99,7 +105,7 @@ public class EnemyBase : MonoBehaviour
 
     private void OnMouseDown()
     {
-        TakeDamageEnemy(1f,EnemyType.Normal);
+        TakeDamageEnemy(1f, EnemyType.Normal);
     }
 
     private void OnDrawGizmosSelected()
@@ -114,7 +120,7 @@ public class EnemyBase : MonoBehaviour
 
         Gizmos.DrawLine(start, end);
     }
-    
+
     public void TakeDamageOverTime(float totalDamage, float duration)
     {
         StartCoroutine(DamageOverTimeCoroutine(totalDamage, duration));
@@ -128,7 +134,7 @@ public class EnemyBase : MonoBehaviour
 
         while (elapsed < duration)
         {
-            TakeDamageEnemy(damagePerTick,EnemyType.Ice);
+            TakeDamageEnemy(damagePerTick, EnemyType.Ice);
             yield return new WaitForSeconds(tickInterval);
             elapsed += tickInterval;
         }
@@ -175,6 +181,35 @@ public class EnemyBase : MonoBehaviour
         speed = baseSpeed;
         isFrozen = false;
     }
+    private void UpdateRunDirection()
+    {
+        if (animator == null || target == null || spriteRenderer == null) return;
+
+        Vector2 toTarget = target.position - transform.position;
+
+        bool isBehind = false;
+
+        if (Mathf.Abs(toTarget.y) >= 0.1f)
+        {
+            isBehind = toTarget.y > 0;
+            animator.SetBool("isRunningBack", isBehind);
+            animator.SetBool("isRunningFront", !isBehind);
+        }
+
+        if (Mathf.Abs(toTarget.x) >= 0.1f)
+        {
+            bool lookingLeft = toTarget.x < 0;
+
+            if (isBehind)
+            {
+                lookingLeft = !lookingLeft;
+            }
+
+            spriteRenderer.flipX = lookingLeft;
+        }
+    }
+
+
 
 
 }

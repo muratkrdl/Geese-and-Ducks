@@ -27,7 +27,6 @@ public class SkillButton : MonoBehaviour
         if (iconImage != null && currentSkill != null)
         {
             iconImage.sprite = currentSkill.skillIcon;
-            Debug.Log("Yeni ikon atandý: " + currentSkill.skillName);
         }
     }
 

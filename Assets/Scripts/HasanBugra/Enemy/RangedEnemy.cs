@@ -25,6 +25,7 @@ public class RangedEnemy : EnemyBase
         EnemyProjectile enemyProjectile = proj.GetComponent<EnemyProjectile>();
         enemyProjectile.SetDamage(damage);
         enemyProjectile.SetParent(gameObject);
+
         Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
         if (rb != null)
         {

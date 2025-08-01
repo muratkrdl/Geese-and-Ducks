@@ -57,7 +57,7 @@ namespace Murat.Abstracts
             {
                 if (other.TryGetComponent<EnemyBase>(out var enemy))
                 {
-                    enemy.TakeDamageEnemy(_damage);
+                    enemy.TakeDamageEnemy(_damage, EnemyType.Normal);
                     ReleasePool();
                 }
             }

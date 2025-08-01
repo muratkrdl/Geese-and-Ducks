@@ -34,7 +34,7 @@ public class FireballProjectile : MonoBehaviour
         EnemyBase enemy = other.GetComponent<EnemyBase>();
         if (enemy != null)
         {
-            enemy.TakeDamageEnemy(instantDamage);
+            enemy.TakeDamageEnemy(instantDamage, EnemyType.Ice);
             SpawnFireArea();
             Destroy(gameObject);
         }

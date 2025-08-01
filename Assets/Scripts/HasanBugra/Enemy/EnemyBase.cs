@@ -1,21 +1,22 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
+[System.Flags]
 public enum EnemyType
 {
     Normal,
-    Ice,
     Fire,
+    Ice,
     Metal
 }
-
 public class EnemyBase : MonoBehaviour
 {
     [Header("Enemy Settings")]
     [SerializeField] private EnemyConfig enemyConfig;
     [SerializeField] private float attackDistance = 1f;
     [SerializeField] private LayerMask damageableLayerMask;
-    [SerializeField] private EnemyType enemyType = EnemyType.Normal;
+    [SerializeField] private EnemyType _enemyType;
     [SerializeField] private SpriteRenderer Healthfiller;
 
     // Ekleyen: Ata
@@ -40,6 +41,8 @@ public class EnemyBase : MonoBehaviour
         speed = enemyConfig.speed;
         damage = enemyConfig.damage;
         health = enemyConfig.maxHealth;
+        EnemyType[] types = (EnemyType[])Enum.GetValues(typeof(EnemyType));
+        _enemyType = types[UnityEngine.Random.Range(0, types.Length)];
         target = FindAnyObjectByType<HeartOfLine>()?.transform;
     }
 
@@ -74,9 +77,20 @@ public class EnemyBase : MonoBehaviour
         isAttacking = false;
     }
 
-    public virtual void TakeDamageEnemy(float amount)
+    public virtual void TakeDamageEnemy(float amount,EnemyType enemyType)
     {
+        if(_enemyType == enemyType)
+        {
+            amount *= 2;
+        }
+        else if(enemyType != EnemyType.Normal)
+        {
+            amount /= 2 ;
+        }
+
+
         health -= amount;
+        ParticleEffectsManager.Instance.PlayHitEffect(transform.position);
         if (health <= 0)
         {
             Destroy(gameObject);
@@ -85,7 +99,7 @@ public class EnemyBase : MonoBehaviour
 
     private void OnMouseDown()
     {
-        TakeDamageEnemy(1f);
+        TakeDamageEnemy(1f,EnemyType.Normal);
     }
 
     private void OnDrawGizmosSelected()
@@ -114,7 +128,7 @@ public class EnemyBase : MonoBehaviour
 
         while (elapsed < duration)
         {
-            TakeDamageEnemy(damagePerTick);
+            TakeDamageEnemy(damagePerTick,EnemyType.Ice);
             yield return new WaitForSeconds(tickInterval);
             elapsed += tickInterval;
         }

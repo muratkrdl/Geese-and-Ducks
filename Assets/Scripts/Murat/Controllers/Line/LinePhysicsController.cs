@@ -35,7 +35,7 @@ namespace Murat.Controllers.Line
 
                 if (other.TryGetComponent<EnemyBase>(out var enemy))
                 {
-                    enemy.TakeDamageEnemy(999);
+                    enemy.TakeDamageEnemy(999,EnemyType.Normal);
                 }
             }
         }

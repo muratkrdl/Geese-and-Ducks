@@ -27,7 +27,7 @@ public class LightningArea : MonoBehaviour
             EnemyBase enemy = hit.GetComponent<EnemyBase>();
             if (enemy != null)
             {
-                enemy.TakeDamageEnemy(damage);
+                enemy.TakeDamageEnemy(damage, EnemyType.Metal);
             }
         }
     }

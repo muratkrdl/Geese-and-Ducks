@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class SkillButton : MonoBehaviour
 {
     public SkillBase currentSkill;
-    public TextMeshProUGUI skillNameText;
+    public Image iconImage; 
 
     private Button button;
 
@@ -24,9 +24,10 @@ public class SkillButton : MonoBehaviour
 
     void UpdateVisual()
     {
-        if (skillNameText != null && currentSkill != null)
+        if (iconImage != null && currentSkill != null)
         {
-            skillNameText.text = currentSkill.skillName;
+            iconImage.sprite = currentSkill.skillIcon;
+            Debug.Log("Yeni ikon atandý: " + currentSkill.skillName);
         }
     }
 
@@ -39,3 +40,4 @@ public class SkillButton : MonoBehaviour
         }
     }
 }
+

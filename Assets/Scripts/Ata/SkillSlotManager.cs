@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillSlotManager : MonoBehaviour
@@ -21,36 +21,30 @@ public class SkillSlotManager : MonoBehaviour
         if (!activeSkillButtons.Contains(usedButton))
             return;
 
-        // Mevcut skill’i çýkar
-        SkillBase usedSkill = usedButton.currentSkill;
-        activeSkillButtons.Remove(usedButton);
-
-        // Havuzdan kullanýlmayan bir skill bul
-        SkillBase newSkill = null;
-        foreach (SkillBase prefab in allSkillPrefabs)
+        int currentIndex = allSkillPrefabs.FindIndex(skill => skill.skillName == usedButton.currentSkill.skillName);
+        if (currentIndex == -1)
         {
-            bool alreadyUsed = false;
-            foreach (var btn in activeSkillButtons)
-            {
-                if (btn.currentSkill.skillName == prefab.skillName)
-                {
-                    alreadyUsed = true;
-                    break;
-                }
-            }
-
-            if (!alreadyUsed && prefab != usedSkill)
-            {
-                newSkill = prefab;
-                break;
-            }
+            return;
         }
 
-        // Eðer yeni bir skill bulunduysa deðiþtir
-        if (newSkill != null)
+        int nextIndex = (currentIndex + 1) % allSkillPrefabs.Count;
+
+        for (int i = 0; i < allSkillPrefabs.Count; i++)
         {
-            usedButton.AssignSkill(newSkill);
-            activeSkillButtons.Add(usedButton);
+            SkillBase nextSkill = allSkillPrefabs[nextIndex];
+
+            bool isSkillAlreadyActive = activeSkillButtons.Exists(btn => btn != usedButton && btn.currentSkill.skillName == nextSkill.skillName);
+
+            if (!isSkillAlreadyActive)
+            {
+                usedButton.AssignSkill(nextSkill);
+                Debug.Log("Yeni skill atandÄ±: " + nextSkill.skillName);
+                return;
+            }
+
+            nextIndex = (nextIndex + 1) % allSkillPrefabs.Count;
         }
     }
+
+
 }

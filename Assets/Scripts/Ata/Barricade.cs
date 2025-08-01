@@ -17,8 +17,7 @@ public class Barricade : SkillBase
 
         // Barikat bu yöne dönük olacak
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
-
+        Quaternion rotation = Quaternion.Euler(0f, 0f, angle + 270f);
         GameObject obj = Instantiate(barricadePrefab, targetPosition, rotation);
     }
 }

@@ -81,7 +81,7 @@ namespace Murat.Abstracts
             if (!_turretHead || !CurrentTarget) return;
             
             Vector2 direction = (CurrentTarget.position - _turretHead.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg-90;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             _turretHead.rotation = Quaternion.Euler(0, 0, angle);
             
             /* // Smooth Rotation //

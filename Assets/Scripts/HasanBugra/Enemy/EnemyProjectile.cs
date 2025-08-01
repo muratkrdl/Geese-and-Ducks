@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyProjectile : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class EnemyProjectile : MonoBehaviour
         if (damageable != null)
         {
             damageable.TakeDamage(projectileDamage);
+            ParticleEffectsManager.Instance.PlayHitEffect((collision.transform.position));
             HeartOfLine heartOfLine = collision.GetComponent<HeartOfLine>();
             if (heartOfLine != null) Destroy(_parent);
             Destroy(gameObject);

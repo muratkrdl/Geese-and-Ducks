@@ -18,6 +18,26 @@ MonoBehaviour:
     enemySpawns:
     - enemyPrefab: {fileID: 2473923567995312056, guid: 19d8b97b54f409d49a27d627bdfb4ca9, type: 3}
       spawnChance: 80
+      enemyTypes: 3
     - enemyPrefab: {fileID: 2822863301766698869, guid: d0c9de014398e1d488242b1b92196f01, type: 3}
       spawnChance: 20
+      enemyTypes: 1
+    maxEnemies: 50
+  - heartOfLinePrefab: {fileID: 5472797839034419999, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
+    enemySpawns:
+    - enemyPrefab: {fileID: 2473923567995312056, guid: 19d8b97b54f409d49a27d627bdfb4ca9, type: 3}
+      spawnChance: 80
+      enemyTypes: 1
+    - enemyPrefab: {fileID: 2822863301766698869, guid: d0c9de014398e1d488242b1b92196f01, type: 3}
+      spawnChance: 20
+      enemyTypes: 1
+    maxEnemies: 50
+  - heartOfLinePrefab: {fileID: 5472797839034419999, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
+    enemySpawns:
+    - enemyPrefab: {fileID: 2473923567995312056, guid: 19d8b97b54f409d49a27d627bdfb4ca9, type: 3}
+      spawnChance: 80
+      enemyTypes: 1
+    - enemyPrefab: {fileID: 2822863301766698869, guid: d0c9de014398e1d488242b1b92196f01, type: 3}
+      spawnChance: 20
+      enemyTypes: 1
     maxEnemies: 50

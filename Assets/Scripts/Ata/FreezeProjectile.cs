@@ -36,7 +36,7 @@ public class FreezeProjectile : MonoBehaviour
         EnemyBase enemy = other.GetComponent<EnemyBase>();
         if (enemy != null)
         {
-            enemy.TakeDamageEnemy(freezeDamage);
+            enemy.TakeDamageEnemy(freezeDamage, EnemyType.Fire);
             enemy.Freeze(freezeTime);
             SpawnFreezeArea();
             Destroy(gameObject);

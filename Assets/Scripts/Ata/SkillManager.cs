@@ -28,16 +28,20 @@ public class SkillManager : MonoBehaviour
     {
         if (currentSkill != null)
         {
-            currentSkill.UseSkill(pos);
+            bool usedSuccessfully = currentSkill.UseSkillWithCheck(pos);
 
-            if (lastClickedButton != null)
+            if (usedSuccessfully)
             {
-                SkillSlotManager.instance.ReplaceSkillSlot(lastClickedButton);
-                lastClickedButton = null; 
+                if (lastClickedButton != null)
+                {
+                    SkillSlotManager.instance.ReplaceSkillSlot(lastClickedButton);
+                    lastClickedButton = null;
+                }
+
+                currentSkill = null;
             }
-
-            currentSkill = null;
-
         }
     }
+
+
 }

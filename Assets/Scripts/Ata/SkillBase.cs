@@ -25,9 +25,15 @@ public abstract class SkillBase : MonoBehaviour
     public float windForce;
     public float windRadius;
 
-
-
-
     public abstract void UseSkill(Vector2 targetPosition);
+    public virtual bool UseSkillWithCheck(Vector2 targetPosition)
+    {
+        if (!ManaManager.instance.UseMana((int)skillCost))
+            return false;
+
+        UseSkill(targetPosition);
+        return true;
+    }
+
 
 }

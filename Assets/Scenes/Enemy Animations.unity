@@ -373,7 +373,7 @@ MonoBehaviour:
   skillCost: 1
   skillName: FREEZE
   duration: 5
-  skillIcon: {fileID: -3050765854793595517, guid: ed6024a41b849654fa276f8c2bd0815b, type: 3}
+  skillIcon: {fileID: -986926618126360767, guid: ae6a5f8b7af92114d9ef71ed9180948c, type: 3}
   fireballDamage: 0
   fireAreaDamage: 0
   freezeDuration: 3
@@ -662,7 +662,7 @@ MonoBehaviour:
   skillCost: 1
   skillName: BARRICADE
   duration: 0
-  skillIcon: {fileID: 21300000, guid: 73ca45ac9b704f1468f794ee2164b197, type: 3}
+  skillIcon: {fileID: -8823035418536358335, guid: dfe4602e63ecb59428c3ff9bd66fb4a4, type: 3}
   fireballDamage: 0
   fireAreaDamage: 0
   freezeDuration: 0
@@ -1125,7 +1125,7 @@ MonoBehaviour:
   skillCost: 1
   skillName: WIND
   duration: 3
-  skillIcon: {fileID: -6372324850270929274, guid: 2a0a98d9d91c12548ba18c112ada93a7, type: 3}
+  skillIcon: {fileID: 5526893261252088708, guid: 2c250c0031396764aa50bb359e1ead48, type: 3}
   fireballDamage: 0
   fireAreaDamage: 0
   freezeDuration: 0
@@ -1849,11 +1849,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7251657873149983529, guid: b6333fceef5c8404d80803911627d58d, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime1
-      value: 65535
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7251657873149983529, guid: b6333fceef5c8404d80803911627d58d, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime2
-      value: 65535
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7251657873149983529, guid: b6333fceef5c8404d80803911627d58d, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
@@ -1988,7 +1988,7 @@ MonoBehaviour:
   skillCost: 1
   skillName: LIGHTNING
   duration: 0.5
-  skillIcon: {fileID: 21300000, guid: 0c98723d4eea267468f153a05d14495c, type: 3}
+  skillIcon: {fileID: 2355343249742543673, guid: f0ed5b0ea9a872b438bde280121c402e, type: 3}
   fireballDamage: 0
   fireAreaDamage: 0
   freezeDuration: 0
@@ -2046,7 +2046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentMana: 5
   maxMana: 10
-  secForMana: 5
+  secForMana: 0.1
 --- !u!4 &2004051136
 Transform:
   m_ObjectHideFlags: 0
@@ -2167,7 +2167,7 @@ MonoBehaviour:
   skillCost: 1
   skillName: FIREBALL
   duration: 3
-  skillIcon: {fileID: 7771256962137198263, guid: b2c63ddbde7e4c94eb83d8d65f429a1d, type: 3}
+  skillIcon: {fileID: 4406269049281162047, guid: 6e185261c24de404185e26857ac5dc79, type: 3}
   fireballDamage: 2
   fireAreaDamage: 1
   freezeDuration: 0
@@ -2207,6 +2207,14 @@ PrefabInstance:
       propertyPath: placementController
       value: 
       objectReference: {fileID: 1690250967}
+    - target: {fileID: 2970958660744755578, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970958660744755578, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f7a1fffe73cc3d448ba1d4b13b1fa4e, type: 3}
     - target: {fileID: 3204143054778508861, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2215,6 +2223,42 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 2139770209}
+    - target: {fileID: 4422065386721323206, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 4422065386721323206, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 4422065386721323206, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 172
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643555892600967011, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609568987038789028, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609568987038789028, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e4456bf85abe8f145b8684d2af95b62d, type: 3}
+    - target: {fileID: 5609568987038789028, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609568987038789028, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609568987038789028, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6154516944252732493, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2303,18 +2347,54 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 414409985}
+    - target: {fileID: 6498360287468663588, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498360287468663588, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498360287468663588, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 172
+      objectReference: {fileID: 0}
     - target: {fileID: 6987003524395584879, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: currentSkill
       value: 
       objectReference: {fileID: 2139770209}
+    - target: {fileID: 7245335873860592558, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7571537000746760322, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839214616955744506, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839214616955744506, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8479074000532956367, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: currentSkill
       value: 
       objectReference: {fileID: 414409985}
+    - target: {fileID: 8866943392495707969, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 8866943392495707969, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 8866943392495707969, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 172
+      objectReference: {fileID: 0}
     - target: {fileID: 9050318302968715164, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: currentSkill
       value: 

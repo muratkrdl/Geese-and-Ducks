@@ -1,11 +1,12 @@
+using Murat.Data.UnityObject.CDS;
+using Murat.Data.ValueObject;
 using UnityEngine;
 
 namespace Murat.Controllers.Line
 {
     public class LineMovementController : MonoBehaviour
     {
-        [SerializeField] private float moveSpeed = .5f;
-        [SerializeField] private float reverseMoveSpeed = 1.5f;
+        private LineMovementData _data;
         
         private LineRenderer _myLines;
         private PenController _pen;
@@ -15,7 +16,6 @@ namespace Murat.Controllers.Line
         private bool _isReversing;
 
         public int CurrentLineIndex => _currentLineIndex;
-        public bool IsReversing => _isReversing;
         public void SetReversing(bool value) => _isReversing = value;
         public void SetCurrentLineIndex(int value) => _currentLineIndex = value;
 
@@ -24,6 +24,7 @@ namespace Murat.Controllers.Line
             _myLines = lineRenderer;
             _pen = penController;
             _coordinates = coords;
+            _data = Resources.Load<CD_LINE>("Data/CDS/CD_LINE").LineMovementData;
         }
 
         public void StartLine()
@@ -42,7 +43,7 @@ namespace Murat.Controllers.Line
             if (targetIndex < 0 || targetIndex >= _coordinates.Length)
                 return;
 
-            float speed = _isReversing ? reverseMoveSpeed : moveSpeed;
+            float speed = _isReversing ? _data.ReverseMoveSpeed : _data.MoveSpeed;
             Vector3 targetPos = _coordinates[targetIndex];
             Vector3 currentPos = _myLines.GetPosition(_currentLineIndex);
             float step = speed * Time.deltaTime;

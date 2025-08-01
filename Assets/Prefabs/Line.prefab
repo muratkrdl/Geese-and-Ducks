@@ -264,8 +264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5065dd826ce7b494083a31943d2e18e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
-  reverseMoveSpeed: 1.5
 --- !u!114 &7628505451184364001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,18 +307,16 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  moveSpeed: 0.5
-  reverseMoveSpeed: 1.5
   coordinates:
-  - {x: -1, y: 0}
-  - {x: -1, y: 1}
-  - {x: 0, y: 1}
-  - {x: 1, y: 1}
-  - {x: 1, y: 0}
-  - {x: 1, y: -1}
-  - {x: 0, y: -1}
-  - {x: -1, y: -1}
-  - {x: -1, y: 0}
+  - {x: -0.5, y: 0}
+  - {x: -0.5, y: 0.5}
+  - {x: 0, y: 0.5}
+  - {x: 0.5, y: 0.5}
+  - {x: 0.5, y: 0}
+  - {x: 0.5, y: -0.5}
+  - {x: 0, y: -0.5}
+  - {x: -0.5, y: -0.5}
+  - {x: -0.5, y: 0}
   myLines: {fileID: 7251657873149983529}
   myCollider: {fileID: 6742299302476815468}
 --- !u!1 &4993869501472142851
@@ -423,4 +419,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389acbc4d25d4ebdb0f5b1c5129c2bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 500

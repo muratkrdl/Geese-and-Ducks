@@ -61,16 +61,21 @@ public class EnemyBase : MonoBehaviour
 
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
-        if (distanceToTarget <= attackDistance)
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackDistance, damageableLayerMask);
+
+        foreach (var hit in hits)
         {
-            IDamageable damageable = target.GetComponent<IDamageable>();
+            IDamageable damageable = hit.GetComponent<IDamageable>();
             if (damageable != null)
             {
                 isAttacking = true;
-                Attack(damageable, target.GetComponent<HeartOfLine>());
+
+                HeartOfLine heart = hit.GetComponent<HeartOfLine>();
+                Attack(damageable, heart);
                 return;
             }
         }
+
 
         Vector2 direction = (target.position - transform.position).normalized;
         transform.Translate(direction * speed * Time.deltaTime);
@@ -99,6 +104,7 @@ public class EnemyBase : MonoBehaviour
         ParticleEffectsManager.Instance.PlayHitEffect(transform.position);
         if (health <= 0)
         {
+            ParticleEffectsManager.Instance.PlayDeathEffect(transform.position);
             Destroy(gameObject);
         }
     }

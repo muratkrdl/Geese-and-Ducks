@@ -3,7 +3,7 @@ using Murat.Utilities;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace Murat.Abstracts
+namespace Murat.Objects
 {
     public class TurretProjectile : MonoBehaviour, IPoolableObject<TurretProjectile>
     {

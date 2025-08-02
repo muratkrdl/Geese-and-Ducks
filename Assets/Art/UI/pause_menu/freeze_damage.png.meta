@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0aa648682b861544fad921f4e2a6c010
+guid: 1a8e8f71c26bc054883db5954f575d11
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5820034270545862408
-    second: lose_menu_layout 1_0
+      213: 1928081913008998960
+    second: freeze_damage_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lose_menu_layout 1_0
+      name: freeze_damage_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 821
-        height: 905
+        width: 329
+        height: 198
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80f5c7c455ae4c050800000000000000
-      internalID: 5820034270545862408
+      spriteID: 03ac1c2d84ce1ca10800000000000000
+      internalID: 1928081913008998960
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      lose_menu_layout 1_0: 5820034270545862408
+      freeze_damage_0: 1928081913008998960
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

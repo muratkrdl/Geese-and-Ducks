@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   Full: 0
-  SkillIcon: {fileID: -6470460504253458178, guid: be7ff15c6fd8a054d9aceaf72d614832, type: 3}
+  SkillIcon: {fileID: -3874220525117462835, guid: b08127296a10dc940889dd69ee69794f, type: 3}
   SkillName: FireballAttack
   Level: 2
   MaxLevel: 3

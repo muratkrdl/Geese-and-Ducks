@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   Full: 1
-  SkillIcon: {fileID: 8288426215254106694, guid: 551c794c1095b1b479cef139a20a8736, type: 3}
+  SkillIcon: {fileID: -2958575644143083353, guid: 846eceec8c5cbe442900dcbb36eb56e3, type: 3}
   SkillName: MainBaseHP
   Level: 3
   MaxLevel: 3

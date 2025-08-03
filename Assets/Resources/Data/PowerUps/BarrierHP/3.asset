@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   Full: 1
-  SkillIcon: {fileID: -855298285791758126, guid: 8bf9981d43d62014d9b7310cb1f08bd4, type: 3}
+  SkillIcon: {fileID: -2958575644143083353, guid: 846eceec8c5cbe442900dcbb36eb56e3, type: 3}
   SkillName: BarrierHP
   Level: 3
   MaxLevel: 3

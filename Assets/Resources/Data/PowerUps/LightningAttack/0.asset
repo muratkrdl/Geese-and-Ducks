@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 0
   m_EditorClassIdentifier: 
   Full: 0
-  SkillIcon: {fileID: 7028616704906629411, guid: fd1fb76bc8248ff4ea30602ec4d547ce, type: 3}
+  SkillIcon: {fileID: 225948240956070067, guid: 132f56c1bbe237e4d87f54def47ff2d0, type: 3}
   SkillName: LightningAttack
   Level: 0
   MaxLevel: 3

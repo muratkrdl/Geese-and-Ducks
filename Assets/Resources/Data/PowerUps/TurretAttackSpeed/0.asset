@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 0
   m_EditorClassIdentifier: 
   Full: 0
-  SkillIcon: {fileID: -1540426309290004842, guid: 4685d3a410ce8364c8b404fddc23178e, type: 3}
+  SkillIcon: {fileID: 7971073073502777382, guid: 7ea4261e835ecc247bcf21540ddb161d, type: 3}
   SkillName: Turret Attack Speed
   Level: 0
   MaxLevel: 3

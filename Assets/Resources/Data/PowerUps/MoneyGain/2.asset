@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   Full: 0
-  SkillIcon: {fileID: 4113829005332862926, guid: b9767fcb164f5da42a2b5ee7327f6234, type: 3}
+  SkillIcon: {fileID: -6115180617874789390, guid: 94d697ebe7e95244ebccaee1582983a5, type: 3}
   SkillName: MoneyGain
   Level: 2
   MaxLevel: 3

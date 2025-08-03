@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   Full: 1
-  SkillIcon: {fileID: -2966200626249415253, guid: 595acddec8920ad4da782d80192cfdbd, type: 3}
+  SkillIcon: {fileID: 4720712797069797593, guid: 16db99434c28598429931011339e6d30, type: 3}
   SkillName: Turret Attack
   Level: 3
   MaxLevel: 3

@@ -15,6 +15,7 @@ namespace Murat.Controllers.Line
         {
             _myLines = lineRenderer;
             _defaultGradient = gradient;
+            lineRenderer.colorGradient = _defaultGradient;
         }
 
         public async UniTaskVoid UpdateGradientAsync(int a, int b, Func<int> getCurrentLineIndex, Action<bool> setReversing, Action onComplete)
@@ -41,12 +42,12 @@ namespace Murat.Controllers.Line
 
             var colorKeys = new GradientColorKey[]
             {
-                new GradientColorKey(start == 0 ? Color.red : Color.white, 0f),
-                new GradientColorKey(start == 0 ? Color.red : Color.white, Mathf.Max(0f, start - GradientMargin)),
+                new GradientColorKey(start == 0 ? Color.red : Color.black, 0f),
+                new GradientColorKey(start == 0 ? Color.red : Color.black, Mathf.Max(0f, start - GradientMargin)),
                 new GradientColorKey(Color.red, start),
                 new GradientColorKey(Color.red, end),
-                new GradientColorKey(Color.white, Mathf.Min(1f, end + GradientMargin)),
-                new GradientColorKey(Color.white, 1f)
+                new GradientColorKey(Color.black, Mathf.Min(1f, end + GradientMargin)),
+                new GradientColorKey(Color.black, 1f)
             };
 
             gradient.SetKeys(colorKeys, new[]

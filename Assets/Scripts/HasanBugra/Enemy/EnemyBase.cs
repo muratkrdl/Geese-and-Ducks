@@ -1,5 +1,8 @@
 using System;
 using System.Collections;
+using Murat.Abstracts;
+using Murat.Enums;
+using Murat.Managers;
 using UnityEngine;
 
 [System.Flags]
@@ -10,7 +13,7 @@ public enum EnemyType
     Ice,
     Metal
 }
-public class EnemyBase : MonoBehaviour
+public class EnemyBase : GamePlayBehaviour
 {
     [Header("Enemy Settings")]
     [SerializeField] private EnemyConfig enemyConfig;
@@ -26,6 +29,9 @@ public class EnemyBase : MonoBehaviour
     private Coroutine freezeRoutine;
     [SerializeField] private float baseSpeed = 1f;
     [SerializeField] private int manaReward = 1;
+    protected Animator animator;
+    protected SpriteRenderer spriteRenderer;
+
 
     //Enemy Proporties
     private float speed = 2f;
@@ -36,6 +42,8 @@ public class EnemyBase : MonoBehaviour
     protected Transform target;
     protected bool isAttacking = false;
 
+    private float realSpeed;
+
     protected virtual void Start()
     {
         speed = enemyConfig.speed;
@@ -44,48 +52,56 @@ public class EnemyBase : MonoBehaviour
         EnemyType[] types = (EnemyType[])Enum.GetValues(typeof(EnemyType));
         _enemyType = types[UnityEngine.Random.Range(0, types.Length)];
         target = FindAnyObjectByType<HeartOfLine>()?.transform;
+
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        realSpeed = speed;
     }
 
     protected virtual void Update()
     {
-        if (isAttacking || target == null) return;
+        UpdateRunDirection();
 
-        Vector2 direction = (target.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, attackDistance, damageableLayerMask);
-        if(hit.collider != null)
+        if (isAttacking || target == null || GameStateManager.Instance.GetCurrentState() != GameState.Playing) return;
+
+        float distanceToTarget = Vector2.Distance(transform.position, target.position);
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackDistance, damageableLayerMask);
+
+        foreach (var hit in hits)
         {
-            heartOfLine = hit.collider.GetComponent<HeartOfLine>();
-        }
-    
-        if (hit.collider != null && hit.collider.gameObject != gameObject)
-        {
-            IDamageable damageable = hit.collider.GetComponent<IDamageable>();
+            IDamageable damageable = hit.GetComponent<IDamageable>();
             if (damageable != null)
             {
                 isAttacking = true;
-                Attack(damageable,heartOfLine);
+
+                HeartOfLine heart = hit.GetComponent<HeartOfLine>();
+                Attack(damageable, heart);
                 return;
             }
         }
 
-        transform.Translate(direction * speed * Time.deltaTime);
+
+        Vector2 direction = (target.position - transform.position).normalized;
+        transform.Translate(direction * realSpeed * Time.deltaTime);
     }
 
-    protected virtual void Attack(IDamageable target ,HeartOfLine heartOfLine)
+
+    protected virtual void Attack(IDamageable target, HeartOfLine heartOfLine)
     {
         target.TakeDamage(damage);
         isAttacking = false;
     }
 
-    public virtual void TakeDamageEnemy(float amount,EnemyType enemyType)
+    public virtual void TakeDamageEnemy(float amount, EnemyType enemyType)
     {
-        if(_enemyType == enemyType)
+        if (_enemyType == enemyType)
         {
             amount *= 2;
         }
-        else if(enemyType != EnemyType.Normal)
+        else if (enemyType != EnemyType.Normal)
         {
-            amount /= 2 ;
+            amount /= 2;
         }
 
 
@@ -93,13 +109,14 @@ public class EnemyBase : MonoBehaviour
         ParticleEffectsManager.Instance.PlayHitEffect(transform.position);
         if (health <= 0)
         {
+            ParticleEffectsManager.Instance.PlayDeathEffect(transform.position);
             Destroy(gameObject);
         }
     }
 
     private void OnMouseDown()
     {
-        TakeDamageEnemy(1f,EnemyType.Normal);
+        TakeDamageEnemy(1f, EnemyType.Normal);
     }
 
     private void OnDrawGizmosSelected()
@@ -114,7 +131,7 @@ public class EnemyBase : MonoBehaviour
 
         Gizmos.DrawLine(start, end);
     }
-    
+
     public void TakeDamageOverTime(float totalDamage, float duration)
     {
         StartCoroutine(DamageOverTimeCoroutine(totalDamage, duration));
@@ -128,8 +145,9 @@ public class EnemyBase : MonoBehaviour
 
         while (elapsed < duration)
         {
-            TakeDamageEnemy(damagePerTick,EnemyType.Ice);
+            TakeDamageEnemy(damagePerTick, EnemyType.Ice);
             yield return new WaitForSeconds(tickInterval);
+            yield return new WaitUntil(() => GameStateManager.Instance.GetCurrentState() == GameState.Playing);
             elapsed += tickInterval;
         }
     }
@@ -147,11 +165,12 @@ public class EnemyBase : MonoBehaviour
     private IEnumerator SlowDownCoroutine(float multiplier, float duration)
     {
         isSlowed = true;
-        speed = baseSpeed * multiplier;
+        realSpeed = baseSpeed * multiplier;
 
         yield return new WaitForSeconds(duration);
+        yield return new WaitUntil(() => GameStateManager.Instance.GetCurrentState() == GameState.Playing);
 
-        speed = baseSpeed;
+        realSpeed = baseSpeed;
         isSlowed = false;
     }
     public void Freeze(float freezeDuration)
@@ -167,14 +186,50 @@ public class EnemyBase : MonoBehaviour
     private IEnumerator FreezeCoroutine(float duration)
     {
         isFrozen = true;
-        float originalSpeed = speed;
-        speed = 0f;
+        realSpeed = 0f;
 
         yield return new WaitForSeconds(duration);
+        yield return new WaitUntil(() => GameStateManager.Instance.GetCurrentState() == GameState.Playing);
 
-        speed = baseSpeed;
+        realSpeed = baseSpeed;
         isFrozen = false;
+    }
+    private void UpdateRunDirection()
+    {
+        if (animator == null || target == null || spriteRenderer == null) return;
+
+        Vector2 toTarget = target.position - transform.position;
+
+        bool isBehind = false;
+
+        if (Mathf.Abs(toTarget.y) >= 0.1f)
+        {
+            isBehind = toTarget.y > 0;
+            animator.SetBool("isRunningBack", isBehind);
+            animator.SetBool("isRunningFront", !isBehind);
+        }
+
+        if (Mathf.Abs(toTarget.x) >= 0.1f)
+        {
+            bool lookingLeft = toTarget.x < 0;
+
+            if (isBehind)
+            {
+                lookingLeft = !lookingLeft;
+            }
+
+            spriteRenderer.flipX = lookingLeft;
+        }
     }
 
 
+    protected override void OnGamePause()
+    {
+        realSpeed = 0;
+    }
+
+    protected override void OnGameResume()
+    {
+        realSpeed = speed;
+    }
 }

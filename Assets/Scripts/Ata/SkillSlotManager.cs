@@ -38,7 +38,6 @@ public class SkillSlotManager : MonoBehaviour
             if (!isSkillAlreadyActive)
             {
                 usedButton.AssignSkill(nextSkill);
-                Debug.Log("Yeni skill atandı: " + nextSkill.skillName);
                 return;
             }
 

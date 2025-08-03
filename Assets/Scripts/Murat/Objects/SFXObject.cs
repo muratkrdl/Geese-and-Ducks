@@ -1,3 +1,4 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using Murat.Data.UnityObject;
 using Murat.Systems.ObjectPooling;
@@ -11,6 +12,8 @@ namespace Murat.Objects
         private AudioSource _audioSource;
     
         private ObjectPool<SfxObject> _pool;
+
+        private CancellationTokenSource cts = new();
 
         public void SetPool(ObjectPool<SfxObject> pool)
         {
@@ -37,7 +40,7 @@ namespace Murat.Objects
 
         private async UniTaskVoid Release()
         {
-            await UniTask.WaitUntil(() => !_audioSource.isPlaying);
+            await UniTask.WaitUntil(() => !_audioSource.isPlaying, cancellationToken: cts.Token);
             _audioSource.Stop();
             ReleasePool();
         }
@@ -45,6 +48,8 @@ namespace Murat.Objects
         public void ReleasePool()
         {
             _pool.Release(this);
+            cts.Cancel();
+            cts = new CancellationTokenSource();
         }
     
     }

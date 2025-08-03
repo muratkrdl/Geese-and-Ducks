@@ -1,3 +1,5 @@
+using Murat.Managers;
+using Murat.Utilities;
 using UnityEngine;
 
 public class RangedEnemy : EnemyBase
@@ -12,6 +14,7 @@ public class RangedEnemy : EnemyBase
         {
             Shoot();
             lastShootTime = Time.time;
+            SfxManager.Instance.PlaySfx(SFXNames.ENEMY_HIT);
         }
 
         isAttacking = false;
@@ -25,6 +28,7 @@ public class RangedEnemy : EnemyBase
         EnemyProjectile enemyProjectile = proj.GetComponent<EnemyProjectile>();
         enemyProjectile.SetDamage(damage);
         enemyProjectile.SetParent(gameObject);
+
         Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
         if (rb != null)
         {

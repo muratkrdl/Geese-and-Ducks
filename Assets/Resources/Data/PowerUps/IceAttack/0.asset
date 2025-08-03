@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 0
   m_EditorClassIdentifier: 
   Full: 0
-  SkillIcon: {fileID: 4130640169021434097, guid: ac46d2bdcb81b1943874ceb8cb459b95, type: 3}
+  SkillIcon: {fileID: 1928081913008998960, guid: 1a8e8f71c26bc054883db5954f575d11, type: 3}
   SkillName: IceAttack
   Level: 0
   MaxLevel: 3

@@ -10,6 +10,8 @@ public class ParticleEffectsManager : MonoBehaviour
     [SerializeField] private ParticleSystem hitParticles;
     [SerializeField] private int poolSize = 10;
 
+    [SerializeField] private GameObject deathEffectPrefab;
+
     private Queue<ParticleSystem> pool = new Queue<ParticleSystem>();
 
     private void Awake()
@@ -58,4 +60,12 @@ public class ParticleEffectsManager : MonoBehaviour
         ps.gameObject.SetActive(false);
         pool.Enqueue(ps);
     }
+
+    public void PlayDeathEffect(Vector3 position)
+    {
+        if (deathEffectPrefab == null) return;
+
+        Instantiate(deathEffectPrefab, position, Quaternion.identity);
+    }
+
 }

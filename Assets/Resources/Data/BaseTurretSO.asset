@@ -15,5 +15,5 @@ MonoBehaviour:
   DetectionRange: 4
   AttackSpeed: 0.75
   ProjectileSpeed: 10
-  ProjectileDamage: 0
-  MaxHP: 1
+  ProjectileDamage: 1
+  MaxHP: 3

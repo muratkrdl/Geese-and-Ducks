@@ -1,5 +1,6 @@
 using Murat.Data.UnityObject.CDS;
 using Murat.Data.ValueObject;
+using Murat.Events;
 using UnityEngine;
 
 namespace Murat.Controllers.Line
@@ -14,6 +15,9 @@ namespace Murat.Controllers.Line
 
         private int _currentLineIndex;
         private bool _isReversing;
+        private bool _isLineCompleted;
+
+        private float _realMoveSpeed;
 
         public int CurrentLineIndex => _currentLineIndex;
         public void SetReversing(bool value) => _isReversing = value;
@@ -25,6 +29,7 @@ namespace Murat.Controllers.Line
             _pen = penController;
             _coordinates = coords;
             _data = Resources.Load<CD_LINE>("Data/CDS/CD_LINE").LineMovementData;
+            _realMoveSpeed = _data.MoveSpeed;
         }
 
         public void StartLine()
@@ -36,14 +41,14 @@ namespace Murat.Controllers.Line
 
         public void MoveLastLine()
         {
-            if (_currentLineIndex >= _coordinates.Length || _currentLineIndex < 0)
+            if (_isLineCompleted || _currentLineIndex < 0)
                 return;
 
             int targetIndex = _isReversing ? _currentLineIndex - 1 : _currentLineIndex;
             if (targetIndex < 0 || targetIndex >= _coordinates.Length)
                 return;
 
-            float speed = _isReversing ? _data.ReverseMoveSpeed : _data.MoveSpeed;
+            float speed = _isReversing ? _data.ReverseMoveSpeed : _realMoveSpeed;
             Vector3 targetPos = _coordinates[targetIndex];
             Vector3 currentPos = _myLines.GetPosition(_currentLineIndex);
             float step = speed * Time.deltaTime;
@@ -88,8 +93,27 @@ namespace Murat.Controllers.Line
                 _myLines.SetPosition(_currentLineIndex, targetPos);
 
                 if (_currentLineIndex + 1 < _coordinates.Length)
+                {
                     _pen.SetGoPos(_coordinates[_currentLineIndex + 1]);
+                }
             }
+            
+            if (_currentLineIndex >= _coordinates.Length)
+            {
+                // Win
+                CoreGameEvents.Instance.OnGameWin?.Invoke();
+                _isLineCompleted = true;
+            }
+        }
+
+        public void SetStopSpeed()
+        {
+            _realMoveSpeed = 0;
+        }
+
+        public void SetNormalSpeed()
+        {
+            _realMoveSpeed = _data.MoveSpeed;
         }
     }
 } 

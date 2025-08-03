@@ -1,5 +1,7 @@
 using Murat.Abstracts;
+using Murat.Managers;
 using Murat.Systems.ObjectPooling;
+using Murat.Utilities;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -20,6 +22,8 @@ namespace Murat.Objects
             projectile.transform.position = muzzlePos.position;
             
             LastAttackTime = Time.time;
+            
+            SfxManager.Instance.PlaySfx(SFXNames.TOWER_ATTACK);
         }
 
         public override void TakeDamage(float damage)

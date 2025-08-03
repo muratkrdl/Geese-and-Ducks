@@ -84,7 +84,8 @@ namespace Murat.Abstracts
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             _turretHead.rotation = Quaternion.Euler(0, 0, angle);
             
-            /* // Smooth Rotation //
+            // Smooth Rotation //
+            /* 
              Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
             _turretHead.rotation = Quaternion.RotateTowards
             (

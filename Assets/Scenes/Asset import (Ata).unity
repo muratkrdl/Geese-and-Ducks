@@ -373,14 +373,14 @@ MonoBehaviour:
   skillCost: 1
   skillName: FREEZE
   duration: 5
-  freezeDuration: 3
+  skillIcon: {fileID: -3050765854793595517, guid: ed6024a41b849654fa276f8c2bd0815b, type: 3}
   fireballDamage: 0
   fireAreaDamage: 0
+  freezeDuration: 3
   slowRate: 0.5
   freezeDamage: 0.7
   lightningDamage: 0
   lightningRadius: 0
-  skillIcon: {fileID: -3050765854793595517, guid: ed6024a41b849654fa276f8c2bd0815b, type: 3}
   windForce: 0
   windRadius: 0
   freezeProjectilePrefab: {fileID: 7928945883172355189, guid: 3db548b0037882646b04647d7b3ccadb, type: 3}
@@ -491,6 +491,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1019589457}
   - {fileID: 1308843165}
   - {fileID: 1469722383}
   - {fileID: 1614971076}
@@ -662,14 +663,14 @@ MonoBehaviour:
   skillCost: 1
   skillName: BARRICADE
   duration: 0
-  freezeDuration: 0
+  skillIcon: {fileID: 21300000, guid: 73ca45ac9b704f1468f794ee2164b197, type: 3}
   fireballDamage: 0
   fireAreaDamage: 0
+  freezeDuration: 0
   slowRate: 0
   freezeDamage: 0
   lightningDamage: 0
   lightningRadius: 0
-  skillIcon: {fileID: 21300000, guid: 73ca45ac9b704f1468f794ee2164b197, type: 3}
   windForce: 0
   windRadius: 0
   barricadePrefab: {fileID: 1979790925423885565, guid: 44ad035260958fd429957d577781e899, type: 3}
@@ -1009,6 +1010,135 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2183087338121961846, guid: a84857079a1365e48b586237e71b67e6, type: 3}
   m_PrefabInstance: {fileID: 1008340310}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1019589456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1019589457}
+  - component: {fileID: 1019589458}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1019589457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019589456}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 355342902}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1019589458
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019589456}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: aaf8b053ac1e0704391aa19ddf73b682, type: 3}
+  m_Resource: {fileID: 8300000, guid: aaf8b053ac1e0704391aa19ddf73b682, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1105137782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,14 +1255,14 @@ MonoBehaviour:
   skillCost: 1
   skillName: WIND
   duration: 3
-  freezeDuration: 0
+  skillIcon: {fileID: -6372324850270929274, guid: 2a0a98d9d91c12548ba18c112ada93a7, type: 3}
   fireballDamage: 0
   fireAreaDamage: 0
+  freezeDuration: 0
   slowRate: 0
   freezeDamage: 0
   lightningDamage: 0
   lightningRadius: 0
-  skillIcon: {fileID: -6372324850270929274, guid: 2a0a98d9d91c12548ba18c112ada93a7, type: 3}
   windForce: 5
   windRadius: 2
   windAreaPrefab: {fileID: 899189281788596361, guid: f57ee6de6abfe8241863ea24739e2ffb, type: 3}
@@ -1736,6 +1866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitParticles: {fileID: 5916601477873739340, guid: 70caa08decd476b4bb282839c5a4dd0f, type: 3}
   poolSize: 10
+  deathEffectPrefab: {fileID: 0}
 --- !u!4 &1680103761
 Transform:
   m_ObjectHideFlags: 0
@@ -1924,14 +2055,14 @@ MonoBehaviour:
   skillCost: 1
   skillName: LIGHTNING
   duration: 0.5
-  freezeDuration: 0
+  skillIcon: {fileID: 21300000, guid: 0c98723d4eea267468f153a05d14495c, type: 3}
   fireballDamage: 0
   fireAreaDamage: 0
+  freezeDuration: 0
   slowRate: 0
   freezeDamage: 0
   lightningDamage: 999
   lightningRadius: 2
-  skillIcon: {fileID: 21300000, guid: 0c98723d4eea267468f153a05d14495c, type: 3}
   windForce: 0
   windRadius: 0
   lightningAreaPrefab: {fileID: 1316959007188064189, guid: ff1d03b18c969ad4eaf5b2a6223bf941, type: 3}
@@ -2103,14 +2234,14 @@ MonoBehaviour:
   skillCost: 1
   skillName: FIREBALL
   duration: 3
-  freezeDuration: 0
+  skillIcon: {fileID: 7771256962137198263, guid: b2c63ddbde7e4c94eb83d8d65f429a1d, type: 3}
   fireballDamage: 2
   fireAreaDamage: 1
+  freezeDuration: 0
   slowRate: 0
   freezeDamage: 0
   lightningDamage: 0
   lightningRadius: 0
-  skillIcon: {fileID: 7771256962137198263, guid: b2c63ddbde7e4c94eb83d8d65f429a1d, type: 3}
   windForce: 0
   windRadius: 0
   fireballPrefab: {fileID: 3373140292946462385, guid: aad5df55f08e6524dbea232b22d055b1, type: 3}

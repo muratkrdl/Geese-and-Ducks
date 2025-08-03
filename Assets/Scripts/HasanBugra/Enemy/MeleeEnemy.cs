@@ -1,4 +1,6 @@
 using System.Collections;
+using Murat.Managers;
+using Murat.Utilities;
 using UnityEngine;
 
 public class MeleeEnemy : EnemyBase
@@ -16,6 +18,8 @@ public class MeleeEnemy : EnemyBase
         StartCoroutine(ApplyKnockback(knockbackDir));
         if (heartOfLine != null) Destroy(gameObject);
         isAttacking = false;
+        
+        SfxManager.Instance.PlaySfx(SFXNames.ENEMY_HIT);
     }
 
     private IEnumerator ApplyKnockback(Vector2 direction)

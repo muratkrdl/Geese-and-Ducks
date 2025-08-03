@@ -1,3 +1,5 @@
+using Murat.Managers;
+using Murat.Utilities;
 using UnityEngine;
 
 public class RangedEnemy : EnemyBase
@@ -15,6 +17,8 @@ public class RangedEnemy : EnemyBase
         }
 
         isAttacking = false;
+        
+        SfxManager.Instance.PlaySfx(SFXNames.ENEMY_HIT);
     }
 
     void Shoot()

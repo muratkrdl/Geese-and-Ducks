@@ -2,6 +2,7 @@ using System.Net.Mime;
 using DG.Tweening;
 using Murat.Abstracts;
 using Murat.Events;
+using Murat.Managers;
 using Murat.Utilities;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ namespace Murat.Objects.Panels
             
             _clickedButton = true;
             CoreGameEvents.Instance.OnGameResume?.Invoke();
+            SfxManager.Instance.PlaySfx(SFXNames.BUTTON_SOUND);
         }
 
         private void OnClick_Quit()
@@ -31,6 +33,7 @@ namespace Murat.Objects.Panels
             _clickedButton = true;
             
             Application.Quit();
+            SfxManager.Instance.PlaySfx(SFXNames.BUTTON_SOUND);
         }
         
         public override void OpenPanel()

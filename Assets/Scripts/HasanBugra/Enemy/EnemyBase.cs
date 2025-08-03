@@ -1,5 +1,8 @@
 using System;
 using System.Collections;
+using Murat.Abstracts;
+using Murat.Enums;
+using Murat.Managers;
 using UnityEngine;
 
 [System.Flags]
@@ -10,7 +13,7 @@ public enum EnemyType
     Ice,
     Metal
 }
-public class EnemyBase : MonoBehaviour
+public class EnemyBase : GamePlayBehaviour
 {
     [Header("Enemy Settings")]
     [SerializeField] private EnemyConfig enemyConfig;
@@ -39,6 +42,8 @@ public class EnemyBase : MonoBehaviour
     protected Transform target;
     protected bool isAttacking = false;
 
+    private float realSpeed;
+
     protected virtual void Start()
     {
         speed = enemyConfig.speed;
@@ -50,7 +55,7 @@ public class EnemyBase : MonoBehaviour
 
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        realSpeed = speed;
     }
 
     protected virtual void Update()
@@ -78,7 +83,7 @@ public class EnemyBase : MonoBehaviour
 
 
         Vector2 direction = (target.position - transform.position).normalized;
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(direction * realSpeed * Time.deltaTime);
     }
 
 
@@ -142,6 +147,7 @@ public class EnemyBase : MonoBehaviour
         {
             TakeDamageEnemy(damagePerTick, EnemyType.Ice);
             yield return new WaitForSeconds(tickInterval);
+            yield return new WaitUntil(() => GameStateManager.Instance.GetCurrentState() == GameState.Playing);
             elapsed += tickInterval;
         }
     }
@@ -159,11 +165,12 @@ public class EnemyBase : MonoBehaviour
     private IEnumerator SlowDownCoroutine(float multiplier, float duration)
     {
         isSlowed = true;
-        speed = baseSpeed * multiplier;
+        realSpeed = baseSpeed * multiplier;
 
         yield return new WaitForSeconds(duration);
+        yield return new WaitUntil(() => GameStateManager.Instance.GetCurrentState() == GameState.Playing);
 
-        speed = baseSpeed;
+        realSpeed = baseSpeed;
         isSlowed = false;
     }
     public void Freeze(float freezeDuration)
@@ -179,12 +186,12 @@ public class EnemyBase : MonoBehaviour
     private IEnumerator FreezeCoroutine(float duration)
     {
         isFrozen = true;
-        float originalSpeed = speed;
-        speed = 0f;
+        realSpeed = 0f;
 
         yield return new WaitForSeconds(duration);
+        yield return new WaitUntil(() => GameStateManager.Instance.GetCurrentState() == GameState.Playing);
 
-        speed = baseSpeed;
+        realSpeed = baseSpeed;
         isFrozen = false;
     }
     private void UpdateRunDirection()
@@ -216,6 +223,13 @@ public class EnemyBase : MonoBehaviour
     }
 
 
+    protected override void OnGamePause()
+    {
+        realSpeed = 0;
+    }
 
-
+    protected override void OnGameResume()
+    {
+        realSpeed = speed;
+    }
 }

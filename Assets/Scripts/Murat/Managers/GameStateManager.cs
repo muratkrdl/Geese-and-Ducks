@@ -1,6 +1,6 @@
 using Murat.Enums;
+using Murat.Events;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Murat.Managers
 {
@@ -10,9 +10,6 @@ namespace Murat.Managers
         
         private GameState _currentState;
         
-        public UnityAction onGamePause;
-        public UnityAction onGameResume;
-
         private void Awake()
         {
             Instance = this;
@@ -21,8 +18,8 @@ namespace Murat.Managers
 
         private void OnEnable()
         {
-            onGamePause += OnGamePause;
-            onGameResume += OnGameResume;
+            CoreGameEvents.Instance.OnGamePause += OnGamePause;
+            CoreGameEvents.Instance.OnGameResume += OnGameResume;
         }
 
         private void OnGamePause() => _currentState = GameState.Paused;
@@ -30,11 +27,14 @@ namespace Murat.Managers
 
         private  void OnDisable()
         {
-            onGamePause -= OnGamePause;
-            onGameResume -= OnGameResume;
+            CoreGameEvents.Instance.OnGamePause -= OnGamePause;
+            CoreGameEvents.Instance.OnGameResume -= OnGameResume;
         }
 
         public GameState GetCurrentState() => _currentState;
 
+        public void InvokeGamePause() => CoreGameEvents.Instance.OnGamePause?.Invoke();
+        public void InvokeGameResume() => CoreGameEvents.Instance.OnGameResume?.Invoke();
+        
     }
 }

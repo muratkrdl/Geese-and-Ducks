@@ -1,10 +1,11 @@
+using Murat.Abstracts;
 using Murat.Controllers;
 using Murat.Controllers.Line;
 using UnityEngine;
 
 namespace Murat.Managers
 {
-    public class LineManager : MonoBehaviour
+    public class LineManager : GamePlayBehaviour
     {
         [SerializeField] private PenController pen;
         [SerializeField] private Gradient defaultGradient;
@@ -58,6 +59,16 @@ namespace Murat.Managers
                 _movementController.SetReversing,
                 () => _oldReverseA = 999
             ).Forget();
+        }
+
+        protected override void OnGamePause()
+        {
+            _movementController.SetStopSpeed();
+        }
+
+        protected override void OnGameResume()
+        {
+            _movementController.SetNormalSpeed();
         }
     }
 }

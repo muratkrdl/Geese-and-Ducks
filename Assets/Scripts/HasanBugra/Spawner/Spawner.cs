@@ -1,3 +1,5 @@
+using Murat.Enums;
+using Murat.Managers;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -24,6 +26,8 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+        if (GameStateManager.Instance.GetCurrentState() != GameState.Playing) return;
+        
         GameObject selectedPrefab = GetRandomEnemyByChance();
 
         Vector2 spawnPos = GetScreenEdgeSpawnPosition();

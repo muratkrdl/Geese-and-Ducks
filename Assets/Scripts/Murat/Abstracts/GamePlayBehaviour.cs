@@ -1,3 +1,4 @@
+using Murat.Events;
 using Murat.Managers;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ namespace Murat.Abstracts
     {
         protected virtual void OnEnable()
         {
-            GameStateManager.Instance.onGamePause += OnGamePause;
-            GameStateManager.Instance.onGameResume += OnGameResume;
+            CoreGameEvents.Instance.OnGamePause += OnGamePause;
+            CoreGameEvents.Instance.OnGameResume += OnGameResume;
         }
 
         protected abstract void OnGamePause();
@@ -16,8 +17,8 @@ namespace Murat.Abstracts
 
         protected virtual void OnDisable()
         {
-            GameStateManager.Instance.onGamePause -= OnGamePause;
-            GameStateManager.Instance.onGameResume -= OnGameResume;
+            CoreGameEvents.Instance.OnGamePause -= OnGamePause;
+            CoreGameEvents.Instance.OnGameResume -= OnGameResume;
         }
     }
 }

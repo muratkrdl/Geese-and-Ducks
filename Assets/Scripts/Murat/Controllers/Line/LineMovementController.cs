@@ -15,6 +15,8 @@ namespace Murat.Controllers.Line
         private int _currentLineIndex;
         private bool _isReversing;
 
+        private float _realMoveSpeed;
+
         public int CurrentLineIndex => _currentLineIndex;
         public void SetReversing(bool value) => _isReversing = value;
         public void SetCurrentLineIndex(int value) => _currentLineIndex = value;
@@ -25,6 +27,7 @@ namespace Murat.Controllers.Line
             _pen = penController;
             _coordinates = coords;
             _data = Resources.Load<CD_LINE>("Data/CDS/CD_LINE").LineMovementData;
+            _realMoveSpeed = _data.MoveSpeed;
         }
 
         public void StartLine()
@@ -43,7 +46,7 @@ namespace Murat.Controllers.Line
             if (targetIndex < 0 || targetIndex >= _coordinates.Length)
                 return;
 
-            float speed = _isReversing ? _data.ReverseMoveSpeed : _data.MoveSpeed;
+            float speed = _isReversing ? _data.ReverseMoveSpeed : _realMoveSpeed;
             Vector3 targetPos = _coordinates[targetIndex];
             Vector3 currentPos = _myLines.GetPosition(_currentLineIndex);
             float step = speed * Time.deltaTime;
@@ -90,6 +93,16 @@ namespace Murat.Controllers.Line
                 if (_currentLineIndex + 1 < _coordinates.Length)
                     _pen.SetGoPos(_coordinates[_currentLineIndex + 1]);
             }
+        }
+
+        public void SetStopSpeed()
+        {
+            _realMoveSpeed = 0;
+        }
+
+        public void SetNormalSpeed()
+        {
+            _realMoveSpeed = _data.MoveSpeed;
         }
     }
 } 

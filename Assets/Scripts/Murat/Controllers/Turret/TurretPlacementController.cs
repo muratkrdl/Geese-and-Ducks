@@ -64,7 +64,7 @@ namespace Murat.Controllers.Turret
         
         private bool IsValidPlacement(Vector3 position)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.5f, ConstUtilities.DamagableLayerMask);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.5f, ConstUtilities.DamageableLayerMask);
             
             return colliders.Length == 0;
         }

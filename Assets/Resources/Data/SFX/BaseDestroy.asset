@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8aa84376f94df5a9e15c09f874476a, type: 3}
   m_Name: BaseDestroy
   m_EditorClassIdentifier: 
-  Name: PaperCut
+  Name: BaseDestroy
   Clips:
   - {fileID: 8300000, guid: 99d7187f21bf6a84d8cb2164cd02679f, type: 3}
   Loop: 0

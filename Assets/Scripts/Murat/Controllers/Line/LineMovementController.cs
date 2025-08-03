@@ -1,5 +1,6 @@
 using Murat.Data.UnityObject.CDS;
 using Murat.Data.ValueObject;
+using Murat.Events;
 using UnityEngine;
 
 namespace Murat.Controllers.Line
@@ -14,6 +15,7 @@ namespace Murat.Controllers.Line
 
         private int _currentLineIndex;
         private bool _isReversing;
+        private bool _isLineCompleted;
 
         private float _realMoveSpeed;
 
@@ -39,7 +41,7 @@ namespace Murat.Controllers.Line
 
         public void MoveLastLine()
         {
-            if (_currentLineIndex >= _coordinates.Length || _currentLineIndex < 0)
+            if (_isLineCompleted || _currentLineIndex < 0)
                 return;
 
             int targetIndex = _isReversing ? _currentLineIndex - 1 : _currentLineIndex;
@@ -91,7 +93,16 @@ namespace Murat.Controllers.Line
                 _myLines.SetPosition(_currentLineIndex, targetPos);
 
                 if (_currentLineIndex + 1 < _coordinates.Length)
+                {
                     _pen.SetGoPos(_coordinates[_currentLineIndex + 1]);
+                }
+            }
+            
+            if (_currentLineIndex >= _coordinates.Length)
+            {
+                // Win
+                CoreGameEvents.Instance.OnGameWin?.Invoke();
+                _isLineCompleted = true;
             }
         }
 

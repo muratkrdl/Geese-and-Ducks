@@ -3,6 +3,8 @@ namespace Murat.Enums
     public enum PanelTypes
     {
         None,
-        Pause
+        Pause,
+        Win,
+        Lose
     }
 }

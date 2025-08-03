@@ -9,6 +9,8 @@ namespace Murat.Events
 
         public UnityAction OnGamePause;
         public UnityAction OnGameResume;
+        public UnityAction OnGameWin;
+        public UnityAction OnGameLose;
 
         private void Awake()
         {

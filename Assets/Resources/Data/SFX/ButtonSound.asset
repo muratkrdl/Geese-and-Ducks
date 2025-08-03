@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8aa84376f94df5a9e15c09f874476a, type: 3}
   m_Name: ButtonSound
   m_EditorClassIdentifier: 
-  Name: PaperCut
+  Name: ButtonSound
   Clips:
   - {fileID: 8300000, guid: f07c677e9254bb44ea8041b489f6ec01, type: 3}
   Loop: 0

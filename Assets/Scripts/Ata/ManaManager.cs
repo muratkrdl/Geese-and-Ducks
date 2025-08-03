@@ -1,3 +1,5 @@
+using Murat.Enums;
+using Murat.Managers;
 using UnityEngine;
 
 public class ManaManager : MonoBehaviour
@@ -17,6 +19,8 @@ public class ManaManager : MonoBehaviour
 
     void Update()
     {
+        if (GameStateManager.Instance.GetCurrentState() != GameState.Playing) return;
+        
         timer += Time.deltaTime;
 
         if (timer >= secForMana && currentMana < maxMana)

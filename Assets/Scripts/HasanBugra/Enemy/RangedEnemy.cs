@@ -14,11 +14,10 @@ public class RangedEnemy : EnemyBase
         {
             Shoot();
             lastShootTime = Time.time;
+            SfxManager.Instance.PlaySfx(SFXNames.ENEMY_HIT);
         }
 
         isAttacking = false;
-        
-        SfxManager.Instance.PlaySfx(SFXNames.ENEMY_HIT);
     }
 
     void Shoot()

@@ -62,7 +62,7 @@ public class EnemyBase : GamePlayBehaviour
     {
         UpdateRunDirection();
 
-        if (isAttacking || target == null) return;
+        if (isAttacking || target == null || GameStateManager.Instance.GetCurrentState() != GameState.Playing) return;
 
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
 

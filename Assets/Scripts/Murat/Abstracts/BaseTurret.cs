@@ -1,5 +1,6 @@
 using Murat.Data.UnityObject;
 using Murat.Enums;
+using Murat.Managers;
 using Murat.Utilities;
 using UnityEngine;
 
@@ -32,6 +33,8 @@ namespace Murat.Abstracts
         
         private void Update()
         {
+            if (GameStateManager.Instance.GetCurrentState() != GameState.Playing) return;
+            
             if (!CurrentTarget)
             {
                 FindTarget();

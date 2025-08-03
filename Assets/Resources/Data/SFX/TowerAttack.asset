@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8aa84376f94df5a9e15c09f874476a, type: 3}
   m_Name: TowerAttack
   m_EditorClassIdentifier: 
-  Name: PaperCut
+  Name: TowerAttack
   Clips:
   - {fileID: 8300000, guid: 2fa96aa915f8e604cab0b9d3da1ca4bb, type: 3}
   Loop: 0
   Volume: 0.1
-  MinPitch: 0.9
-  MaxPitch: 1.1
+  MinPitch: 0.8
+  MaxPitch: 1.2
   Is3D: 0
   MaxDistance: 500

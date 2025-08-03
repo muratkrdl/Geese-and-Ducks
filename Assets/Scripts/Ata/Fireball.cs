@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Murat.Managers;
+using Murat.Utilities;
+using UnityEngine;
 
 public class Fireball : SkillBase
 {
@@ -23,5 +25,7 @@ public class Fireball : SkillBase
             fireAreaDamage,
             marker
         );
+        
+        SfxManager.Instance.PlaySfx(SFXNames.FIREBALL);
     }
 }

@@ -1,3 +1,5 @@
+using Murat.Managers;
+using Murat.Utilities;
 using UnityEngine;
 
 public class Freeze : SkillBase
@@ -19,11 +21,13 @@ public class Freeze : SkillBase
         {
             freezeProj.Initialize(
                 targetPosition,
-                duration,        // FreezeArea'nýn sahnede kalma süresi
-                freezeDuration,  // Donma süresi
-                freezeDamage,    // FreezeProjectile çarpýnca vereceði hasar
-                slowRate         // FreezeArea'nýn yavaþlatma oraný
+                duration,        // FreezeArea'nï¿½n sahnede kalma sï¿½resi
+                freezeDuration,  // Donma sï¿½resi
+                freezeDamage,    // FreezeProjectile ï¿½arpï¿½nca vereceï¿½i hasar
+                slowRate         // FreezeArea'nï¿½n yavaï¿½latma oranï¿½
             );
+            
+            SfxManager.Instance.PlaySfx(SFXNames.FREEZE);
         }
     }
 }

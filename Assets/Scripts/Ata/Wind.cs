@@ -1,3 +1,5 @@
+using Murat.Managers;
+using Murat.Utilities;
 using UnityEngine;
 
 public class Wind : SkillBase
@@ -24,5 +26,7 @@ public class Wind : SkillBase
         {
             area.Initialize(windRadius, windForce, duration);
         }
+        
+        SfxManager.Instance.PlaySfx(SFXNames.WIND);
     }
 }

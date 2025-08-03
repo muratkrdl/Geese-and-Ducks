@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Murat.Managers;
+using Murat.Utilities;
+using UnityEngine;
 
 public class Lightning : SkillBase
 {
@@ -19,6 +21,8 @@ public class Lightning : SkillBase
         {
             projScript.Initialize(targetPosition, duration, lightningDamage, lightningRadius);
         }
+        
+        SfxManager.Instance.PlaySfx(SFXNames.THUNDER);
     }
 
 }

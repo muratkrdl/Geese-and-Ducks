@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FireMat
+  m_Name: MetalMat
   m_Shader: {fileID: -6465566751694194690, guid: 6d2c3098e759621409ec3733c275f919, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - _SinSize: 0.1
     m_Colors:
-    - _FireColor: {r: 1, g: 0.4, b: 0, a: 1}
+    - _FireColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7488086021816355229

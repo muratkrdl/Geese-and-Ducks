@@ -330,6 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitParticles: {fileID: 5916601477873739340, guid: 70caa08decd476b4bb282839c5a4dd0f, type: 3}
   poolSize: 10
+  deathEffectPrefab: {fileID: 0}
 --- !u!4 &2045265407
 Transform:
   m_ObjectHideFlags: 0
@@ -540,7 +541,7 @@ PrefabInstance:
     - target: {fileID: 4434591999976400519, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: aa1588112888ea047afc4d8cfc1335de, type: 2}
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4789109281580386443, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

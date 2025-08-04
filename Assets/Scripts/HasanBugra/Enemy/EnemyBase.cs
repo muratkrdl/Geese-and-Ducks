@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Murat.Abstracts;
 using Murat.Enums;
 using Murat.Managers;
 using UnityEngine;
 
-[System.Flags]
 public enum EnemyType
 {
     Normal,
@@ -13,6 +13,7 @@ public enum EnemyType
     Ice,
     Metal
 }
+
 public class EnemyBase : GamePlayBehaviour
 {
     [Header("Enemy Settings")]
@@ -21,6 +22,7 @@ public class EnemyBase : GamePlayBehaviour
     [SerializeField] private LayerMask damageableLayerMask;
     [SerializeField] private EnemyType _enemyType;
     [SerializeField] private SpriteRenderer Healthfiller;
+    [SerializeField] private List<EnemyEffects> effects;
 
     // Ekleyen: Ata
     private bool isSlowed = false;
@@ -51,8 +53,9 @@ public class EnemyBase : GamePlayBehaviour
         health = enemyConfig.maxHealth;
         EnemyType[] types = (EnemyType[])Enum.GetValues(typeof(EnemyType));
         _enemyType = types[UnityEngine.Random.Range(0, types.Length)];
+        ApplyEnemyEffects();
+        
         target = FindAnyObjectByType<HeartOfLine>()?.transform;
-
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         realSpeed = speed;
@@ -111,6 +114,18 @@ public class EnemyBase : GamePlayBehaviour
         {
             ParticleEffectsManager.Instance.PlayDeathEffect(transform.position);
             Destroy(gameObject);
+        }
+    }
+    private void ApplyEnemyEffects()
+    {
+        foreach (EnemyEffects effect in effects)
+        {
+            if (effect.enemyType == _enemyType)
+            {
+                spriteRenderer.material = effect.material;
+                GameObject particle = Instantiate(effect.particlePrefab, transform);
+                particle.transform.localPosition = Vector3.zero;
+            }
         }
     }
 

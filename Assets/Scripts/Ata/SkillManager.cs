@@ -29,7 +29,7 @@ public class SkillManager : MonoBehaviour
     public void UseSelectedSkill(Vector2 pos)
     {
         if (GameStateManager.Instance.GetCurrentState() != GameState.Playing) return;
-        
+
         if (currentSkill != null)
         {
             bool usedSuccessfully = currentSkill.UseSkillWithCheck(pos);

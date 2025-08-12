@@ -3,13 +3,13 @@ using UnityEngine.EventSystems;
 
 public class SkillInput : MonoBehaviour
 {
-        void Start()
+    void Start()
+    {
+        if (SkillManager.instance == null)
         {
-            if (SkillManager.instance == null)
-            {
-                Debug.LogError("SkillManager sahnede yok!");
-            }
+            Debug.LogError("SkillManager sahnede yok!");
         }
+    }
 
     void Update()
     {

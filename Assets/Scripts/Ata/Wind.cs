@@ -9,10 +9,7 @@ public class Wind : SkillBase
 
     public override void UseSkill(Vector2 targetPosition)
     {
-        if (!ManaManager.instance.UseMana((int)skillCost))
-            return;
-
-        Vector2 spawnPos = targetPosition;
+         Vector2 spawnPos = targetPosition;
 
         Vector2 direction = (targetPosition - (Vector2)centerPoint.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

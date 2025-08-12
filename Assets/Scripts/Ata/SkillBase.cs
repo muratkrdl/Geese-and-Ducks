@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class SkillBase : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public abstract class SkillBase : MonoBehaviour
     [Header("Wind")]
     public float windForce;
     public float windRadius;
+
 
     public abstract void UseSkill(Vector2 targetPosition);
     public virtual bool UseSkillWithCheck(Vector2 targetPosition)

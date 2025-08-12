@@ -7,10 +7,7 @@ public class Barricade : SkillBase
 
     public override void UseSkill(Vector2 targetPosition)
     {
-        if (!ManaManager.instance.UseMana((int)skillCost))
-        {
-            return;
-        }
+
 
         // Merkezden hedefe doğru yön
         Vector2 direction = targetPosition - (Vector2)centerPoint.position;

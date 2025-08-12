@@ -6,7 +6,7 @@ public class ManaManager : MonoBehaviour
 {
     public static ManaManager instance;
 
-    public int currentMana = 0;
+    public int currentMana = 1;
     public int maxMana = 10;
 
     public float secForMana = 3f;

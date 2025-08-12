@@ -88,7 +88,7 @@ namespace Murat.Abstracts
             _turretHead.rotation = Quaternion.Euler(0, 0, angle);
             
             // Smooth Rotation //
-            /* 
+            
              Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
             _turretHead.rotation = Quaternion.RotateTowards
             (
@@ -96,7 +96,7 @@ namespace Murat.Abstracts
                 targetRotation,
                 1000f * Time.deltaTime
             );
-            */
+            
         }
 
         protected abstract void Attack();
@@ -104,7 +104,7 @@ namespace Murat.Abstracts
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, Data.DetectionRange);
+  //          Gizmos.DrawWireSphere(transform.position, Data.DetectionRange);
             
             if (CurrentTarget != null)
             {

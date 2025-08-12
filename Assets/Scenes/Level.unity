@@ -193,6 +193,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d4aa7c890e468796ac76e3e28b1db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &207382275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207382276}
+  - component: {fileID: 207382277}
+  m_Layer: 0
+  m_Name: PenSpeedBoost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &207382276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207382275}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2028317885}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &207382277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207382275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06756290dbf4e14480915def01039f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillCost: 5
+  skillName: 
+  duration: 0
+  skillIcon: {fileID: 0}
+  fireballDamage: 0
+  fireAreaDamage: 0
+  freezeDuration: 0
+  slowRate: 0
+  freezeDamage: 0
+  lightningDamage: 0
+  lightningRadius: 0
+  windForce: 0
+  windRadius: 0
+  speedMultiplier: 100
+  buffDuration: 5
 --- !u!114 &274792779 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3293298855524646817, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
@@ -611,6 +670,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &926099765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2404357396273069999, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+  m_PrefabInstance: {fileID: 8236594933434235439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &926099767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3504859557265985248, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+  m_PrefabInstance: {fileID: 8236594933434235439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926099765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &926099770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926099765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3988fc6f67374894bb09d3caae36cf33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  penSpeedBoostSkill: {fileID: 207382277}
+  button: {fileID: 926099767}
 --- !u!1 &1107323968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,11 +1376,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7251657873149983529, guid: b6333fceef5c8404d80803911627d58d, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime1
-      value: 65535
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7251657873149983529, guid: b6333fceef5c8404d80803911627d58d, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime2
-      value: 65535
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7832606672963429677, guid: b6333fceef5c8404d80803911627d58d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1349,6 +1438,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1953737100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7571537000746760322, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+  m_PrefabInstance: {fileID: 8236594933434235439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2028317885 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+  m_PrefabInstance: {fileID: 5732571034311390677}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2049408632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8479074000532956367, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
@@ -1493,7 +1592,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 207382276}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
 --- !u!1001 &5916529905278280709
@@ -1584,6 +1686,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 2139770209}
+    - target: {fileID: 3504859557265985248, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504859557265985248, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504859557265985248, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1953737100}
+    - target: {fileID: 3504859557265985248, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688888707802904638, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Name
+      value: Turret and Pen
+      objectReference: {fileID: 0}
     - target: {fileID: 6154516944252732493, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1707,7 +1829,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2404357396273069999, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 926099770}
   m_SourcePrefab: {fileID: 100100000, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

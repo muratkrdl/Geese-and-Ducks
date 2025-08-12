@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HeartOfLine : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float health = 200f;
+    public float health = 200f;
 
     public void TakeDamage(float damage)
     {

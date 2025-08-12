@@ -171,52 +171,17 @@ MonoBehaviour:
   - {x: 6.4916925, y: -2.332948, z: 0}
   - {x: 5.963637, y: -2.3169465, z: 0}
   - {x: 5.670802, y: -1.859454, z: 0}
---- !u!1 &20041645
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 20041647}
-  - component: {fileID: 20041646}
-  m_Layer: 0
-  m_Name: Skill Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &20041646
+--- !u!114 &20041646 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7853922109257389807, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+  m_PrefabInstance: {fileID: 5732571034311390677}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20041645}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b82be10da6c345448ae8c9f269f3506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSkill: {fileID: 0}
-  lastClickedButton: {fileID: 0}
---- !u!4 &20041647
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20041645}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 542638105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &171006179 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9170280668025763739, guid: 1276ab0a72173a74e968e4ae9d349695, type: 3}
@@ -228,65 +193,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d4aa7c890e468796ac76e3e28b1db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &274792778
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 274792780}
-  - component: {fileID: 274792779}
-  m_Layer: 0
-  m_Name: Freeze Skill
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &274792779
+--- !u!114 &274792779 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3293298855524646817, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+  m_PrefabInstance: {fileID: 5732571034311390677}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274792778}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6c47154065fd0c489be49c8a48776f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 2
-  skillName: FREEZE
-  duration: 5
-  skillIcon: {fileID: -986926618126360767, guid: ae6a5f8b7af92114d9ef71ed9180948c, type: 3}
-  fireballDamage: 0
-  fireAreaDamage: 0
-  freezeDuration: 3
-  slowRate: 0.5
-  freezeDamage: 0.7
-  lightningDamage: 0
-  lightningRadius: 0
-  windForce: 0
-  windRadius: 0
-  freezeProjectilePrefab: {fileID: 7928945883172355189, guid: 3db548b0037882646b04647d7b3ccadb, type: 3}
-  centerPoint: {fileID: 542638105}
---- !u!4 &274792780
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274792778}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 542638105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355342899
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,158 +434,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &414409984
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 414409986}
-  - component: {fileID: 414409985}
-  m_Layer: 0
-  m_Name: Barricade Skill
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &414409985
+--- !u!114 &414409985 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8767304318907796655, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+  m_PrefabInstance: {fileID: 5732571034311390677}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414409984}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac9e6361b2b977a4e807ba5f733bb2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 1
-  skillName: BARRICADE
-  duration: 0
-  skillIcon: {fileID: -8823035418536358335, guid: dfe4602e63ecb59428c3ff9bd66fb4a4, type: 3}
-  fireballDamage: 0
-  fireAreaDamage: 0
-  freezeDuration: 0
-  slowRate: 0
-  freezeDamage: 0
-  lightningDamage: 0
-  lightningRadius: 0
-  windForce: 0
-  windRadius: 0
-  barricadePrefab: {fileID: 1979790925423885565, guid: 44ad035260958fd429957d577781e899, type: 3}
-  centerPoint: {fileID: 542638105}
---- !u!4 &414409986
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414409984}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.56801564, y: -0.38156602, z: 0.059308715}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 542638105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &511684098
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 511684100}
-  - component: {fileID: 511684099}
-  m_Layer: 0
-  m_Name: SkillSlotManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &511684099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511684098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb2e04eaad1f23a479c56959e4416263, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeSkillButtons:
-  - {fileID: 1784943140}
-  - {fileID: 2049408632}
-  - {fileID: 1639706239}
-  allSkillPrefabs:
-  - {fileID: 2139770209}
-  - {fileID: 274792779}
-  - {fileID: 1885503844}
-  - {fileID: 414409985}
-  - {fileID: 1173049764}
---- !u!4 &511684100
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511684098}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 542638105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &542638104
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 542638105}
-  m_Layer: 0
-  m_Name: ATA/CENTER POINT
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &542638105
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542638104}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 20041647}
-  - {fileID: 2004051136}
-  - {fileID: 414409986}
-  - {fileID: 2139770210}
-  - {fileID: 274792780}
-  - {fileID: 1885503845}
-  - {fileID: 1173049765}
-  - {fileID: 511684100}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &564459777
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,65 +658,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1173049763
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1173049765}
-  - component: {fileID: 1173049764}
-  m_Layer: 0
-  m_Name: Wind Skill
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1173049764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173049763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8c93c465367ecb4f8d1ac891efc324f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCost: 3
-  skillName: WIND
-  duration: 3
-  skillIcon: {fileID: 5526893261252088708, guid: 2c250c0031396764aa50bb359e1ead48, type: 3}
-  fireballDamage: 0
-  fireAreaDamage: 0
-  freezeDuration: 0
-  slowRate: 0
-  freezeDamage: 0
-  lightningDamage: 0
-  lightningRadius: 0
-  windForce: 5
-  windRadius: 2
-  windAreaPrefab: {fileID: 899189281788596361, guid: f57ee6de6abfe8241863ea24739e2ffb, type: 3}
-  centerPoint: {fileID: 542638105}
---- !u!4 &1173049765
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173049763}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 542638105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1248592342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1116,6 +833,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1363096305 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6793679609685636024, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
+  m_PrefabInstance: {fileID: 1248592342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a503caa6805f8aa478516fb13be2fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1418958479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,112 +1338,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6333fceef5c8404d80803911627d58d, type: 3}
---- !u!1 &1885503843
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1885503845}
-  - component: {fileID: 1885503844}
-  m_Layer: 0
-  m_Name: Lightning Skill
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1885503844
+--- !u!114 &1905280382 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6985668910687809363, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+  m_PrefabInstance: {fileID: 8236594933434235439}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885503843}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a6d28fe4f09b04a935729fe98cfbd0, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 5
-  skillName: LIGHTNING
-  duration: 0.5
-  skillIcon: {fileID: 2355343249742543673, guid: f0ed5b0ea9a872b438bde280121c402e, type: 3}
-  fireballDamage: 0
-  fireAreaDamage: 0
-  freezeDuration: 0
-  slowRate: 0
-  freezeDamage: 0
-  lightningDamage: 999
-  lightningRadius: 2
-  windForce: 0
-  windRadius: 0
-  lightningAreaPrefab: {fileID: 1316959007188064189, guid: ff1d03b18c969ad4eaf5b2a6223bf941, type: 3}
-  centerPoint: {fileID: 1346871792}
---- !u!4 &1885503845
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885503843}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 542638105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2004051134
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2004051136}
-  - component: {fileID: 2004051135}
-  m_Layer: 0
-  m_Name: ManaManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2004051135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004051134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb58e25f4a5a821438a66ba9d08408ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentMana: 5
-  maxMana: 10
-  secForMana: 3
---- !u!4 &2004051136
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004051134}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 542638105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2049408632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8479074000532956367, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
@@ -1727,66 +1360,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1208de144be071149b4b76ff4c684682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2139770208
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2139770210}
-  - component: {fileID: 2139770209}
-  m_Layer: 0
-  m_Name: Fireball Skill
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2139770209
+--- !u!114 &2139770209 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3586189354336935791, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+  m_PrefabInstance: {fileID: 5732571034311390677}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2139770208}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c658e2a4a4a92634a93f4d07a51ff26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 2
-  skillName: FIREBALL
-  duration: 3
-  skillIcon: {fileID: 4406269049281162047, guid: 6e185261c24de404185e26857ac5dc79, type: 3}
-  fireballDamage: 2
-  fireAreaDamage: 1
-  freezeDuration: 0
-  slowRate: 0
-  freezeDamage: 0
-  lightningDamage: 0
-  lightningRadius: 0
-  windForce: 0
-  windRadius: 0
-  fireballPrefab: {fileID: 3373140292946462385, guid: aad5df55f08e6524dbea232b22d055b1, type: 3}
-  fireTargetMarkerPrefab: {fileID: 1247215513698437545, guid: 9e87a2dca1389cd4799b24acd8e6ba40, type: 3}
-  centerPoint: {fileID: 542638105}
---- !u!4 &2139770210
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2139770208}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 542638105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2145762136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,6 +1415,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3a3d64d3854160a7d64841c51c03ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &5732571034311390677
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 647814182424572852, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: centerPoint
+      value: 
+      objectReference: {fileID: 1346871792}
+    - target: {fileID: 920365649771896078, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: 'activeSkillButtons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1784943140}
+    - target: {fileID: 920365649771896078, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: 'activeSkillButtons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2049408632}
+    - target: {fileID: 920365649771896078, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: 'activeSkillButtons.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1639706239}
+    - target: {fileID: 4151385073774909537, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 1905280382}
+    - target: {fileID: 4151385073774909537, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: heartOfLine
+      value: 
+      objectReference: {fileID: 1363096305}
+    - target: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274723088329668834, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291505474474459567, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
+      propertyPath: m_Name
+      value: ATA/CENTER POINT
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
 --- !u!1001 &5916529905278280709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2057,7 +1722,7 @@ SceneRoots:
   - {fileID: 919228284}
   - {fileID: 1644542325}
   - {fileID: 1346871792}
-  - {fileID: 542638105}
+  - {fileID: 5732571034311390677}
   - {fileID: 1107323970}
   - {fileID: 1248592342}
   - {fileID: 1852334982}

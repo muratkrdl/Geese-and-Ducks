@@ -113,6 +113,7 @@ public class EnemyBase : GamePlayBehaviour
         if (health <= 0)
         {
             ParticleEffectsManager.Instance.PlayDeathEffect(transform.position);
+            ManaManager.instance.AddMana(manaReward);
             Destroy(gameObject);
         }
     }
@@ -122,7 +123,7 @@ public class EnemyBase : GamePlayBehaviour
         {
             if (effect.enemyType == _enemyType)
             {
-              spriteRenderer.material = effect.material;
+//              spriteRenderer.material = effect.material;
                 GameObject particle = Instantiate(effect.particlePrefab, transform);
                 particle.transform.localPosition = Vector3.zero;
             }

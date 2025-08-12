@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyConfig: {fileID: 11400000, guid: 8e253c9e07a0ba24bb8aa14bac8b0975, type: 2}
-  attackDistance: 3
+  attackDistance: 2
   damageableLayerMask:
     serializedVersion: 2
     m_Bits: 256

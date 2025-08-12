@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c47154065fd0c489be49c8a48776f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 1
+  skillCost: 2
   skillName: FREEZE
   duration: 5
   skillIcon: {fileID: -986926618126360767, guid: ae6a5f8b7af92114d9ef71ed9180948c, type: 3}
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c93c465367ecb4f8d1ac891efc324f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 1
+  skillCost: 3
   skillName: WIND
   duration: 3
   skillIcon: {fileID: 5526893261252088708, guid: 2c250c0031396764aa50bb359e1ead48, type: 3}
@@ -1559,11 +1559,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7251657873149983529, guid: b6333fceef5c8404d80803911627d58d, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime1
-      value: 0
+      value: 65535
       objectReference: {fileID: 0}
     - target: {fileID: 7251657873149983529, guid: b6333fceef5c8404d80803911627d58d, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime2
-      value: 0
+      value: 65535
       objectReference: {fileID: 0}
     - target: {fileID: 7832606672963429677, guid: b6333fceef5c8404d80803911627d58d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1639,7 +1639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a6d28fe4f09b04a935729fe98cfbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 1
+  skillCost: 5
   skillName: LIGHTNING
   duration: 0.5
   skillIcon: {fileID: 2355343249742543673, guid: f0ed5b0ea9a872b438bde280121c402e, type: 3}
@@ -1700,7 +1700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentMana: 5
   maxMana: 10
-  secForMana: 1
+  secForMana: 3
 --- !u!4 &2004051136
 Transform:
   m_ObjectHideFlags: 0
@@ -1756,7 +1756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c658e2a4a4a92634a93f4d07a51ff26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 1
+  skillCost: 2
   skillName: FIREBALL
   duration: 3
   skillIcon: {fileID: 4406269049281162047, guid: 6e185261c24de404185e26857ac5dc79, type: 3}

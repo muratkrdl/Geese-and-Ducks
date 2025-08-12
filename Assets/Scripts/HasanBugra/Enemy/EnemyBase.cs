@@ -122,7 +122,7 @@ public class EnemyBase : GamePlayBehaviour
         {
             if (effect.enemyType == _enemyType)
             {
-                spriteRenderer.material = effect.material;
+              spriteRenderer.material = effect.material;
                 GameObject particle = Instantiate(effect.particlePrefab, transform);
                 particle.transform.localPosition = Vector3.zero;
             }

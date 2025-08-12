@@ -9,7 +9,7 @@ public class PotionUI : MonoBehaviour
     {
         if (ManaManager.instance != null)
         {
-            potionText.text = "Silgi Tozu: " + ManaManager.instance.currentMana.ToString();
+            potionText.text = ManaManager.instance.currentMana.ToString();
         }
     }
 }

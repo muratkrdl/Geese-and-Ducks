@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fb6e2107cac115439c6d3affd2524ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 11400000, guid: 04ea2442815685e43b2b5face2f4b0cc, type: 2}
+  gameManager: {fileID: 11400000, guid: b1aa4da03ae1f7544b365cd6e66bc05e, type: 2}
   spawnInterval: 2
   screenBuffer: 2
 --- !u!4 &1107323970
@@ -1349,11 +1349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1953737100 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7571537000746760322, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-  m_PrefabInstance: {fileID: 8236594933434235439}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2049408632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8479074000532956367, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
@@ -1585,6 +1580,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5103519152822020884, guid: 1276ab0a72173a74e968e4ae9d349695, type: 3}
+      propertyPath: placeCost
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1621,26 +1620,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 2139770209}
-    - target: {fileID: 3504859557265985248, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3504859557265985248, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3504859557265985248, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1953737100}
-    - target: {fileID: 3504859557265985248, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3688888707802904638, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_Name
-      value: Turret and Pen
-      objectReference: {fileID: 0}
     - target: {fileID: 6154516944252732493, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1729,10 +1708,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 414409985}
-    - target: {fileID: 6985668910687809363, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_text
-      value: '3 '
-      objectReference: {fileID: 0}
     - target: {fileID: 6987003524395584879, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: currentSkill
       value: 

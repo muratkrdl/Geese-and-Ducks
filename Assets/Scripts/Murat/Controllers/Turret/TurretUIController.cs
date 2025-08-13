@@ -7,17 +7,23 @@ namespace Murat.Controllers.Turret
     public class TurretUIController : MonoBehaviour
     {
         [SerializeField] private Button basicTurretButton;
-
         [SerializeField] private TurretPlacementController placementController;
 
         private void Start()
         {
-            SetupUI();
+            basicTurretButton.onClick.AddListener(StartBasicTurretPlacement);
         }
 
-        private void SetupUI()
+        private void Update()
         {
-            basicTurretButton.onClick.AddListener(StartBasicTurretPlacement);
+            if (ManaManager.instance == null || placementController == null)
+            {
+                basicTurretButton.interactable = false;
+                return;
+            }
+
+            basicTurretButton.interactable =
+                ManaManager.instance.currentMana >= placementController.placeCost;
         }
 
         private void StartBasicTurretPlacement()
@@ -35,9 +41,8 @@ namespace Murat.Controllers.Turret
             foreach (var turret in TurretManager.Instance.GetActiveTurrets())
             {
                 if (turret == null) continue;
-                    
                 TurretManager.Instance.RemoveTurret(turret);
             }
         }
     }
-} 
+}

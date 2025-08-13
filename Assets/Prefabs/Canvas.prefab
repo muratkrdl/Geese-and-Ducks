@@ -633,6 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSkill: {fileID: 0}
   iconImage: {fileID: 7968880691509834273}
+  canvasGroup: {fileID: 0}
 --- !u!1 &1211215951230284460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,7 +1015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8189741070562103807}
   m_Layer: 5
-  m_Name: Turret
+  m_Name: Turret and Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1106,7 +1107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: '3 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 040e06aaf415d9443a62b35aab8d6b7a, type: 2}
   m_sharedMaterial: {fileID: 3937082564329515122, guid: 040e06aaf415d9443a62b35aab8d6b7a, type: 2}
@@ -1828,6 +1829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSkill: {fileID: 0}
   iconImage: {fileID: 3509268701062510210}
+  canvasGroup: {fileID: 0}
 --- !u!1 &7240754490264934205
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,6 +2053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSkill: {fileID: 0}
   iconImage: {fileID: 8009736653895000455}
+  canvasGroup: {fileID: 0}
 --- !u!1 &7340375322700057600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,7 +2066,7 @@ GameObject:
   - component: {fileID: 5811981559916604662}
   - component: {fileID: 2493812819694559303}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Eraser Dust Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2140,7 +2143,6 @@ GameObject:
   - component: {fileID: 2922361071960409445}
   - component: {fileID: 4180501815458524797}
   - component: {fileID: 2876699806069421262}
-  - component: {fileID: 31245950931899171}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2265,19 +2267,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicTurretButton: {fileID: 337038284264589895}
   placementController: {fileID: 0}
---- !u!114 &31245950931899171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7571537000746760322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b31b7f2434b16d54ca38e53a53532373, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  candyText: {fileID: 6985668910687809363}
 --- !u!1 &7615266911803732902
 GameObject:
   m_ObjectHideFlags: 0

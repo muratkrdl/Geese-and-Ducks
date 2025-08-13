@@ -1510,6 +1510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a6d28fe4f09b04a935729fe98cfbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   skillCost: 5
   skillName: LIGHTNING
   duration: 0.5
@@ -1587,6 +1588,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 542638105}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!114 &2049408632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8479074000532956367, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
@@ -1754,6 +1757,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5103519152822020884, guid: 1276ab0a72173a74e968e4ae9d349695, type: 3}
+      propertyPath: placeCost
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1778,6 +1785,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< Updated upstream
     - target: {fileID: 324265629044057114, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1785,6 +1793,35 @@ PrefabInstance:
     - target: {fileID: 443301550685400257, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: m_IsActive
       value: 0
+=======
+    - target: {fileID: 337038284264589895, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 337038284264589895, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 337038284264589895, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 337038284264589895, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 337038284264589895, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 337038284264589895, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 337038284264589895, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 2876699806069421262, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: placementController
@@ -1886,6 +1923,7 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 414409985}
+<<<<<<< Updated upstream
     - target: {fileID: 6968781861251216509, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.75
@@ -1902,6 +1940,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> Stashed changes
     - target: {fileID: 6987003524395584879, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: currentSkill
       value: 

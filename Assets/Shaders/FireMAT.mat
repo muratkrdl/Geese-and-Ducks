@@ -41,9 +41,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _SinSize: 0.1
+    - _SinSize: 0.05
     m_Colors:
-    - _FireColor: {r: 1, g: 0.4, b: 0, a: 1}
+    - _FireColor: {r: 1, g: 0.7165461, b: 0.19999999, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7488086021816355229

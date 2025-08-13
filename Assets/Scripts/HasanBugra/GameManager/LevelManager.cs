@@ -23,15 +23,15 @@ public class LevelManager : MonoBehaviour
 
     private void Initilize()
     {
-       if(_GameManager.currentLevelIndex == 1)
+       if(_GameManager.currentLevelIndex >= 1)
         {
             ChangeDotSprites(Level1Dots);
         }
-       else if(_GameManager.currentLevelIndex == 2)
+       else if(_GameManager.currentLevelIndex >= 2)
         {
             ChangeDotSprites(Level2Dots);
         }
-       else if (_GameManager.currentLevelIndex == 3)
+       else if (_GameManager.currentLevelIndex >= 3)
         {
             ChangeDotSprites(Level3Dots);
         }

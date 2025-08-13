@@ -1,6 +1,9 @@
 using Murat.Data.UnityObject.CDS;
 using Murat.Data.ValueObject;
+using Murat.Enums;
 using Murat.Events;
+using Murat.Managers;
+using System.Collections;
 using UnityEngine;
 
 namespace Murat.Controllers.Line
@@ -114,6 +117,17 @@ namespace Murat.Controllers.Line
         public void SetNormalSpeed()
         {
             _realMoveSpeed = _data.MoveSpeed;
+        }
+
+        public IEnumerator SlowDownCoroutine(float multiplier, float duration)
+        {
+            _realMoveSpeed = _data.MoveSpeed * multiplier;
+
+            yield return new WaitForSeconds(duration);
+            yield return new WaitUntil(() => GameStateManager.Instance.GetCurrentState() == GameState.Playing);
+
+            _realMoveSpeed = _data.MoveSpeed; ;
+
         }
     }
 } 

@@ -13,7 +13,11 @@ namespace Murat.Objects.Panels
         {
             base.Awake();
             gameManager = FindAnyObjectByType<GameManager>();
-            gameManager.OnLevelPast();
+            if(gameManager.GetCurrentLevel() == gameManager.GetLastLevel())
+            {
+                gameManager.OnLevelPast();
+            }
+
             buttons[0].onClick.AddListener(OnClick_Upgrade);
             buttons[1].onClick.AddListener(OnClick_Restart);
             buttons[2].onClick.AddListener(OnClick_NextLevel);
@@ -28,14 +32,22 @@ namespace Murat.Objects.Panels
         private void OnClick_Restart()
         {
             if (_clickedButton) return;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("LevelSelect");
         }
 
         private void OnClick_NextLevel()
         {
             if (_clickedButton) return;
             gameManager.NextLevel();
-            SceneManager.LoadScene("Level");
+            if(gameManager.GetCurrentLevel() < 4)
+            {
+                SceneManager.LoadScene("Level");
+            }
+            else
+            {
+                SceneManager.LoadScene("LevelSelect");
+            }
+           
         }
         
         public override void OpenPanel()

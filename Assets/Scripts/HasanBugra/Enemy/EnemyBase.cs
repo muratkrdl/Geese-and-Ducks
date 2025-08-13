@@ -107,9 +107,11 @@ public class EnemyBase : GamePlayBehaviour
             amount /= 2;
         }
 
-
         health -= amount;
         ParticleEffectsManager.Instance.PlayHitEffect(transform.position);
+
+        SlowDown(0.5f, 0.5f);
+
         if (health <= 0)
         {
             ParticleEffectsManager.Instance.PlayDeathEffect(transform.position);
@@ -117,6 +119,7 @@ public class EnemyBase : GamePlayBehaviour
             Destroy(gameObject);
         }
     }
+
     private void ApplyEnemyEffects()
     {
         foreach (EnemyEffects effect in effects)

@@ -8,9 +8,12 @@ namespace Murat.Objects.Panels
 {
     public class WinPanel : BasePanel
     {
+        private GameManager gameManager;
         protected override void Awake()
         {
             base.Awake();
+            gameManager = FindAnyObjectByType<GameManager>();
+            gameManager.OnLevelPast();
             buttons[0].onClick.AddListener(OnClick_Upgrade);
             buttons[1].onClick.AddListener(OnClick_Restart);
             buttons[2].onClick.AddListener(OnClick_NextLevel);
@@ -31,7 +34,8 @@ namespace Murat.Objects.Panels
         private void OnClick_NextLevel()
         {
             if (_clickedButton) return;
-            Debug.Log("NextLevel");
+            gameManager.NextLevel();
+            SceneManager.LoadScene("Level");
         }
         
         public override void OpenPanel()

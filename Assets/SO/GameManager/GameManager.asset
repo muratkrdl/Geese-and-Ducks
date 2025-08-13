@@ -12,32 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29e5cb08fe84b240aefa929bb43306f, type: 3}
   m_Name: GameManager
   m_EditorClassIdentifier: 
-  currentLevelIndex: 0
+  currentLevelIndex: 1
+  levelOnPlay: 0
   levels:
-  - heartOfLinePrefab: {fileID: 5472797839034419999, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
+  - heartOfLinePrefab: {fileID: 1690702788943325353, guid: 3a302f0b0f801f346a8bfc75b5541076, type: 3}
     enemySpawns:
     - enemyPrefab: {fileID: 2473923567995312056, guid: 19d8b97b54f409d49a27d627bdfb4ca9, type: 3}
       spawnChance: 80
-      enemyTypes: 3
     - enemyPrefab: {fileID: 2822863301766698869, guid: d0c9de014398e1d488242b1b92196f01, type: 3}
       spawnChance: 20
-      enemyTypes: 1
     maxEnemies: 50
-  - heartOfLinePrefab: {fileID: 5472797839034419999, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
+  - heartOfLinePrefab: {fileID: 9132470996480871840, guid: 868fee969916ed4479dd8c139e024114, type: 3}
     enemySpawns:
     - enemyPrefab: {fileID: 2473923567995312056, guid: 19d8b97b54f409d49a27d627bdfb4ca9, type: 3}
       spawnChance: 80
-      enemyTypes: 1
     - enemyPrefab: {fileID: 2822863301766698869, guid: d0c9de014398e1d488242b1b92196f01, type: 3}
       spawnChance: 20
-      enemyTypes: 1
     maxEnemies: 50
-  - heartOfLinePrefab: {fileID: 5472797839034419999, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
+  - heartOfLinePrefab: {fileID: 815688349505017015, guid: 2911b5125200a3040a3eb8104f015fca, type: 3}
     enemySpawns:
     - enemyPrefab: {fileID: 2473923567995312056, guid: 19d8b97b54f409d49a27d627bdfb4ca9, type: 3}
       spawnChance: 80
-      enemyTypes: 1
     - enemyPrefab: {fileID: 2822863301766698869, guid: d0c9de014398e1d488242b1b92196f01, type: 3}
       spawnChance: 20
-      enemyTypes: 1
     maxEnemies: 50

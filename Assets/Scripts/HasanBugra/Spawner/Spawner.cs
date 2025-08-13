@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float spawnInterval = 2f;
 
     [Header("Screen Spawn Bounds")]
-    [SerializeField] private float screenBuffer = 2f; 
+    [SerializeField] private float screenBuffer = 2f;
 
     private Transform heartOfLine;
     private EnemySpawn[] enemySpawns;
@@ -20,15 +20,16 @@ public class EnemySpawner : MonoBehaviour
     {
         heartOfLine = FindAnyObjectByType<HeartOfLine>()?.transform;
         enemySpawns = gameManager.CurrentLevel.enemySpawns;
-     
+
         InvokeRepeating(nameof(SpawnEnemy), 1f, spawnInterval);
     }
 
     void SpawnEnemy()
     {
         if (GameStateManager.Instance.GetCurrentState() != GameState.Playing) return;
-        
+
         GameObject selectedPrefab = GetRandomEnemyByChance();
+        if (selectedPrefab == null) return;
 
         Vector2 spawnPos = GetScreenEdgeSpawnPosition();
         Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
@@ -39,9 +40,7 @@ public class EnemySpawner : MonoBehaviour
         float totalChance = 0f;
 
         foreach (var spawn in enemySpawns)
-        {
             totalChance += spawn.spawnChance;
-        }
 
         float randomPoint = Random.Range(0f, totalChance);
         float cumulative = 0f;
@@ -50,9 +49,7 @@ public class EnemySpawner : MonoBehaviour
         {
             cumulative += spawn.spawnChance;
             if (randomPoint <= cumulative)
-            {
                 return spawn.enemyPrefab;
-            }
         }
 
         return null;
@@ -71,22 +68,17 @@ public class EnemySpawner : MonoBehaviour
         float bottom = screenMin.y - screenBuffer;
         float top = screenMax.y + screenBuffer;
 
-        int side = Random.Range(0, 4);
+        // Sadece üst (0) ve alt (1)
+        int side = Random.Range(0, 2);
         Vector2 pos = Vector2.zero;
 
         switch (side)
         {
-            case 0:
+            case 0: // Üst
                 pos = new Vector2(Random.Range(left, right), top);
                 break;
-            case 1:
+            case 1: // Alt
                 pos = new Vector2(Random.Range(left, right), bottom);
-                break;
-            case 2:
-                pos = new Vector2(left, Random.Range(bottom, top));
-                break;
-            case 3:
-                pos = new Vector2(right, Random.Range(bottom, top));
                 break;
         }
 
@@ -109,7 +101,5 @@ public class EnemySpawner : MonoBehaviour
         Gizmos.color = new Color(1f, 0f, 0f, 0.25f);
         Gizmos.DrawLine(new Vector2(left, bottom), new Vector2(right, bottom));
         Gizmos.DrawLine(new Vector2(left, top), new Vector2(right, top));
-        Gizmos.DrawLine(new Vector2(left, bottom), new Vector2(left, top));
-        Gizmos.DrawLine(new Vector2(right, bottom), new Vector2(right, top));
     }
 }

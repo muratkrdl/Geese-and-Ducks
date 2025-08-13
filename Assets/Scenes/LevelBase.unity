@@ -627,7 +627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1107323969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1338,6 +1338,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6333fceef5c8404d80803911627d58d, type: 3}
+--- !u!114 &1852334983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1522553547803068576, guid: b6333fceef5c8404d80803911627d58d, type: 3}
+  m_PrefabInstance: {fileID: 1852334982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5065dd826ce7b494083a31943d2e18e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1905280382 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6985668910687809363, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
@@ -1423,14 +1434,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 614737668249593769, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
-      propertyPath: skillCost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 647814182424572852, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
-      propertyPath: skillCost
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 647814182424572852, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
       propertyPath: centerPoint
       value: 
@@ -1447,22 +1450,6 @@ PrefabInstance:
       propertyPath: 'activeSkillButtons.Array.data[2]'
       value: 
       objectReference: {fileID: 1639706239}
-    - target: {fileID: 1175149263645660582, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
-      propertyPath: secForMana
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1175149263645660582, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
-      propertyPath: currentMana
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3293298855524646817, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
-      propertyPath: skillCost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3586189354336935791, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
-      propertyPath: skillCost
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4151385073774909537, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
       propertyPath: healthText
       value: 
@@ -1514,14 +1501,6 @@ PrefabInstance:
     - target: {fileID: 5291505474474459567, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
       propertyPath: m_Name
       value: ATA/CENTER POINT
-      objectReference: {fileID: 0}
-    - target: {fileID: 7853922109257389807, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
-      propertyPath: globalCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767304318907796655, guid: 3ca4d39195e5ffa47afd112a9d6bf5d0, type: 3}
-      propertyPath: skillCost
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1620,6 +1599,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 2139770209}
+    - target: {fileID: 3428014133519783178, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
+      propertyPath: lineController
+      value: 
+      objectReference: {fileID: 1852334983}
     - target: {fileID: 6154516944252732493, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: m_Pivot.x
       value: 0

@@ -9,10 +9,12 @@ namespace Murat.Managers
     {
         [SerializeField] private PenController pen;
         [SerializeField] private Gradient defaultGradient;
-        
+
         [SerializeField] private Vector2[] coordinates;
         [SerializeField] private LineRenderer myLines;
         [SerializeField] private EdgeCollider2D myCollider;
+
+        public LineMovementController MovementController => _movementController;
 
         private LineMovementController _movementController;
         private LineGradientController _gradientController;
@@ -22,9 +24,17 @@ namespace Murat.Managers
 
         private void Awake()
         {
-            _movementController = gameObject.AddComponent<LineMovementController>();
-            _gradientController = gameObject.AddComponent<LineGradientController>();
-            _colliderUpdater = gameObject.AddComponent<LineColliderUpdater>();
+            _movementController = GetComponent<LineMovementController>();
+            if (_movementController == null)
+                _movementController = gameObject.AddComponent<LineMovementController>();
+
+            _gradientController = GetComponent<LineGradientController>();
+            if (_gradientController == null)
+                _gradientController = gameObject.AddComponent<LineGradientController>();
+
+            _colliderUpdater = GetComponent<LineColliderUpdater>();
+            if (_colliderUpdater == null)
+                _colliderUpdater = gameObject.AddComponent<LineColliderUpdater>();
 
             _movementController.Initialize(myLines, pen, coordinates);
             _gradientController.Initialize(myLines, defaultGradient);
@@ -51,7 +61,7 @@ namespace Murat.Managers
                 _oldReverseA = realA;
             else
                 return;
-            
+
             _gradientController.UpdateGradientAsync
             (
                 realA, realB,

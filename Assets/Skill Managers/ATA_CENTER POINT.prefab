@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a6d28fe4f09b04a935729fe98cfbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 5
+  skillCost: 1
   skillName: LIGHTNING
   duration: 0.5
   skillIcon: {fileID: 2355343249742543673, guid: f0ed5b0ea9a872b438bde280121c402e, type: 3}
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c93c465367ecb4f8d1ac891efc324f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 3
+  skillCost: 1
   skillName: WIND
   duration: 3
   skillIcon: {fileID: 5526893261252088708, guid: 2c250c0031396764aa50bb359e1ead48, type: 3}
@@ -313,9 +313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb58e25f4a5a821438a66ba9d08408ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMana: 5
+  currentMana: 2
   maxMana: 10
-  secForMana: 3
+  secForMana: 1
 --- !u!1 &5291505474474459567
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c658e2a4a4a92634a93f4d07a51ff26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 2
+  skillCost: 1
   skillName: FIREBALL
   duration: 3
   skillIcon: {fileID: 4406269049281162047, guid: 6e185261c24de404185e26857ac5dc79, type: 3}
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c47154065fd0c489be49c8a48776f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCost: 2
+  skillCost: 1
   skillName: FREEZE
   duration: 5
   skillIcon: {fileID: -986926618126360767, guid: ae6a5f8b7af92114d9ef71ed9180948c, type: 3}

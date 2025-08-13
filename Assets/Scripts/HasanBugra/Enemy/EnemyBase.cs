@@ -53,12 +53,12 @@ public class EnemyBase : GamePlayBehaviour
         health = enemyConfig.maxHealth;
         EnemyType[] types = (EnemyType[])Enum.GetValues(typeof(EnemyType));
         _enemyType = types[UnityEngine.Random.Range(0, types.Length)];
-        ApplyEnemyEffects();
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
         target = FindAnyObjectByType<HeartOfLine>()?.transform;
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         realSpeed = speed;
+
+        ApplyEnemyEffects();
     }
 
     protected virtual void Update()
@@ -126,7 +126,7 @@ public class EnemyBase : GamePlayBehaviour
         {
             if (effect.enemyType == _enemyType)
             {
-//              spriteRenderer.material = effect.material;
+                spriteRenderer.material = effect.material;
                 GameObject particle = Instantiate(effect.particlePrefab, transform);
                 particle.transform.localPosition = Vector3.zero;
             }

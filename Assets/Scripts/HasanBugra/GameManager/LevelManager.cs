@@ -27,11 +27,11 @@ public class LevelManager : MonoBehaviour
         {
             ChangeDotSprites(Level1Dots);
         }
-       else if(_GameManager.currentLevelIndex >= 2)
+        if(_GameManager.currentLevelIndex >= 2)
         {
             ChangeDotSprites(Level2Dots);
         }
-       else if (_GameManager.currentLevelIndex >= 3)
+        if (_GameManager.currentLevelIndex >= 3)
         {
             ChangeDotSprites(Level3Dots);
         }

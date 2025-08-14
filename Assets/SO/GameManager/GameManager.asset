@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameManager
   m_EditorClassIdentifier: 
   currentLevelIndex: 1
-  levelOnPlay: 0
+  levelOnPlay: 1
   levels:
   - heartOfLinePrefab: {fileID: 1690702788943325353, guid: 3a302f0b0f801f346a8bfc75b5541076, type: 3}
     enemySpawns:

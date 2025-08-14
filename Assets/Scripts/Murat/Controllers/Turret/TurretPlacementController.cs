@@ -14,7 +14,10 @@ namespace Murat.Controllers.Turret
         [SerializeField] private Color invalidPlacementColor = Color.red;
 
         [Header("Cost")]
-        public int placeCost = 10; 
+        public int placeCost = 10;
+
+        [Header("Camera")]
+        [SerializeField] private Camera targetCamera; 
 
         private bool _isPlacing;
         private bool _canPlace;
@@ -24,6 +27,13 @@ namespace Murat.Controllers.Turret
         {
             if (previewRenderer == null && placementPreview != null)
                 previewRenderer = placementPreview.GetComponent<SpriteRenderer>();
+
+            ResolveCamera();
+        }
+
+        private void OnEnable()
+        {
+            ResolveCamera();
         }
 
         private void Update()
@@ -35,6 +45,7 @@ namespace Murat.Controllers.Turret
         public void StartPlacement()
         {
             _isPlacing = true;
+            ResolveCamera();
             if (placementPreview != null) placementPreview.SetActive(true);
         }
 
@@ -46,7 +57,12 @@ namespace Murat.Controllers.Turret
 
         private void HandlePlacementInput()
         {
-            Vector3 mousePosition = ConstUtilities.MainCamera.ScreenToWorldPoint(Input.mousePosition);
+            if (!ResolveCamera())
+            {
+                return;
+            }
+
+            Vector3 mousePosition = targetCamera.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0f;
 
             _canPlace = IsValidPlacement(mousePosition);
@@ -96,6 +112,32 @@ namespace Murat.Controllers.Turret
             if (!_isPlacing) return;
             Gizmos.color = _canPlace ? validPlacementColor : invalidPlacementColor;
             Gizmos.DrawWireSphere(_placementPosition, 0.5f);
+        }
+
+
+        private bool ResolveCamera()
+        {
+            if (targetCamera) return true;
+
+            if (ConstUtilities.MainCamera)
+            {
+                targetCamera = ConstUtilities.MainCamera;
+                if (targetCamera) return true;
+            }
+
+            if (Camera.main)
+            {
+                targetCamera = Camera.main;
+                if (targetCamera) return true;
+            }
+
+#if UNITY_2023_1_OR_NEWER
+            // Sahnede herhangi bir aktif kamera bul
+            targetCamera = Object.FindFirstObjectByType<Camera>();
+#else
+            targetCamera = Object.FindObjectOfType<Camera>();
+#endif
+            return targetCamera != null;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Murat.Controllers.Turret
         [SerializeField] private Color invalidPlacementColor = Color.red;
 
         [Header("Cost")]
-        public int placeCost = 5; 
+        public int placeCost = 10; 
 
         private bool _isPlacing;
         private bool _canPlace;

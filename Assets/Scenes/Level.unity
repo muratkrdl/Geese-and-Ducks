@@ -2130,14 +2130,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 324265629044057114, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 443301550685400257, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2876699806069421262, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: placementController
       value: 
@@ -2238,22 +2230,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 414409985}
-    - target: {fileID: 6968781861251216509, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968781861251216509, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968781861251216509, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968781861251216509, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6987003524395584879, guid: 09d5b16b8b68acd41978239076b22971, type: 3}
       propertyPath: currentSkill
       value: 

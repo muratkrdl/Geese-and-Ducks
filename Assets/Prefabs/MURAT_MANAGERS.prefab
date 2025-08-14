@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2022846143
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 100
   m_Sprite: {fileID: 6158248912993035174, guid: 2d111db25e8469f4b8eef3b2638ac94f, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 0.7058824}
@@ -267,6 +267,7 @@ MonoBehaviour:
   previewRenderer: {fileID: 249768498827461645}
   validPlacementColor: {r: 0, g: 1, b: 0, a: 0.7058824}
   invalidPlacementColor: {r: 1, g: 0, b: 0, a: 0.7058824}
+  placeCost: 10
 --- !u!1 &4187743636533909569
 GameObject:
   m_ObjectHideFlags: 0

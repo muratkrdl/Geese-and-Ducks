@@ -666,11 +666,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5472797839034419999, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
       propertyPath: m_Name
-      value: HeartOfLine Variant
+      value: Level3_HeartOfLine
       objectReference: {fileID: 0}
     - target: {fileID: 6033508796646047796, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
       propertyPath: m_Size.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793679609685636024, guid: 6c2bd9fbaf66b574da1b51b5121b19d3, type: 3}
+      propertyPath: health
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

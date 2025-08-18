@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29e5cb08fe84b240aefa929bb43306f, type: 3}
   m_Name: GameManager
   m_EditorClassIdentifier: 
-  currentLevelIndex: 1
-  levelOnPlay: 1
+  currentLevelIndex: 3
+  levelOnPlay: 2
   levels:
   - heartOfLinePrefab: {fileID: 1690702788943325353, guid: 3a302f0b0f801f346a8bfc75b5541076, type: 3}
     enemySpawns:
